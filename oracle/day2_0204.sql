@@ -10,7 +10,7 @@ FROM IDEV.STUDENTS;
 SELECT STUNO, STU_NAME  FROM STUDENTS;
 
 -- 모든 컬럼을 선택할 때는 wildcard 문자 *로 대체
-SELECT * FROM STUDENTS;
+SELECT * FROM STUDENTS s ; --s는 별칭(alias)
 
 -- 데이터 조회에 사용되는 조건 추가는 where 뒤에 조건식 작성
 SELECT * FROM STUDENTS WHERE STUNO =1;
