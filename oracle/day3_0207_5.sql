@@ -118,7 +118,7 @@ SELECT * FROM "TBL_BUY#" tb WHERE custom_id = 'mina012';
 --7. buy# 테이블에서 pcode 가 '1'이 포함된 것 조회
 SELECT * FROM "TBL_BUY#" tb WHERE pcode ='1';		--완전일치 조회
 SELECT * FROM "TBL_BUY#" tb WHERE pcode LIKE '%1%'; --부분일치 조회.1을 포함
-SELECT * FROM "TBL_BUY#" tb WHERE pcode LIKE '1%'; 	--부분일치 조회.1을 포함
-SELECT * FROM "TBL_BUY#" tb WHERE pcode LIKE '%1'; 	--부분일치 조회.1을 포함
+SELECT * FROM "TBL_BUY#" tb WHERE pcode LIKE '1%'; 	--부분일치 조회.1로 시작
+SELECT * FROM "TBL_BUY#" tb WHERE pcode LIKE '%1'; 	--부분일치 조회.1로 끝남
 --8. buy# 테이블에서 pcode에 'on'을 포함하는 것 조회
 SELECT * FROM "TBL_BUY#" tb WHERE LOWER(pcode) LIKE '%on%';
