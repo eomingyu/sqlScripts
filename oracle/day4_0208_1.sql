@@ -51,7 +51,7 @@ ALTER TABLE IDEV."TBL_BUY#"
 --ALTER TABLE 형식 : DROP , ADD, MODIFY(제약조건은 못합니다.)
 
 --SELECT 의 JOIN : 둘 이상의 테이블(주로 참조관계의 테이블)을 연결하여 데이터를 조회하는 명령
---				둘 이상의 테이블은 골통된 컬럼을 갖고 이 컬럼을 이용하여 JOIN 합니다.
+--				둘 이상의 테이블은 공통된 컬럼을 갖고 이 컬럼을 이용하여 JOIN 합니다.
 --형식: SELECT ~ FROM 테이블1 a, 테이블2 b,... WHERE a.공통컬럼1=b.공통컬럼1;
 	
 SELECT * FROM "TBL_PRODUCT#" tp,"TBL_BUY#" tb 
@@ -63,16 +63,16 @@ SELECT * FROM "TBL_PRODUCT#" tp
 		 ON tp.pcode = tb.pcode;
 		 
 --mina012가 구매한 상품명은 무엇인가?
-SELECT pname FROM "TBL_PRODUCT#" tp,"TBL_BUY#" tb 
+SELECT tp.pname FROM "TBL_PRODUCT#" tp,"TBL_BUY#" tb 
 			WHERE tp.pcode=tb.pcode AND CUSTOM_ID ='mina012';
-SELECT pname FROM "TBL_PRODUCT#" tp 
+SELECT tp.pname FROM "TBL_PRODUCT#" tp 
 			JOIN "TBL_BUY#" tb 
 			ON tp.pcode = tb.pcode 
 			WHERE CUSTOM_ID ='mina012';
 --mina012가 구매한 상품명과 가격 조회하기
 SELECT tp.pname, tp.price FROM "TBL_PRODUCT#" tp,"TBL_BUY#" tb  --tp.으로 소속을 명시
 			WHERE tp.pcode=tb.pcode AND CUSTOM_ID ='mina012';
-SELECT pname, price FROM "TBL_PRODUCT#" tp 
+SELECT tp.pname, tp.price FROM "TBL_PRODUCT#" tp 
 			JOIN "TBL_BUY#" tb 
 			ON tp.pcode = tb.pcode 
 			WHERE CUSTOM_ID ='mina012';		
