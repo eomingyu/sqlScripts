@@ -1,88 +1,88 @@
---Áý°èÇÔ¼ö(Åë°èÇÔ¼ö,±×·ìÇÔ¼ö) : count, max, min, sum, avg, ¿Ü¿¡ ºÐ»ê, Ç¥ÁØÆíÂ÷, Áß¾Ó°ª µîÀÇ ÇÔ¼öµµ ÀÖÀ½.
+--ì§‘ê³„í•¨ìˆ˜(í†µê³„í•¨ìˆ˜,ê·¸ë£¹í•¨ìˆ˜) : count, max, min, sum, avg, ì™¸ì— ë¶„ì‚°, í‘œì¤€íŽ¸ì°¨, ì¤‘ì•™ê°’ ë“±ì˜ í•¨ìˆ˜ë„ ìžˆìŒ.
 
---group by : Æ¯Á¤ ÄÃ·³À¸·Î ±×·ìÈ­ÇÏ°í ±×¿¡ ´ëÇØ¼­ Áý°èÇÔ¼ö¸¦ Àû¿ëÇÕ´Ï´Ù.
---¿¹½Ã) ºÎ¼­º° ¿¬ºÀÆò±Õ, Áö¿ªº° Á÷¿ø¼ö, ºÎ¼­º° Á÷¿ø¼ö, ¾÷¹«º° ¿¬ºÀÆò±Õ...
+--group by : íŠ¹ì • ì»¬ëŸ¼ìœ¼ë¡œ ê·¸ë£¹í™”í•˜ê³  ê·¸ì— ëŒ€í•´ì„œ ì§‘ê³„í•¨ìˆ˜ë¥¼ ì ìš©í•©ë‹ˆë‹¤.
+--ì˜ˆì‹œ) ë¶€ì„œë³„ ì—°ë´‰í‰ê· , ì§€ì—­ë³„ ì§ì›ìˆ˜, ë¶€ì„œë³„ ì§ì›ìˆ˜, ì—…ë¬´ë³„ ì—°ë´‰í‰ê· ...
 
--- ±×·ìÇÔ¼ö º¹½À
+-- ê·¸ë£¹í•¨ìˆ˜ ë³µìŠµ
 SELECT COUNT(*), AVG(salary) 
 FROM EMPLOYEES e 
 WHERE JOB_ID ='IT_PROG' ;
 
---¿À·ù : ±×·ìÇÔ¼ö °á°ú¿Í ÀÏ¹Ý ÄÃ·³À» ÇÔ²² Á¶È¸ ¸øÇÕ´Ï´Ù.
+--ì˜¤ë¥˜ : ê·¸ë£¹í•¨ìˆ˜ ê²°ê³¼ì™€ ì¼ë°˜ ì»¬ëŸ¼ì„ í•¨ê»˜ ì¡°íšŒ ëª»í•©ë‹ˆë‹¤.
 SELECT JOB_ID ,COUNT(*), AVG(salary) 
 FROM EMPLOYEES e 
 WHERE JOB_ID ='IT_PROG' ;
 
---group by ¸¦ Àû¿ëÇÏ¿© ¾÷¹«º°·Î count, avg ±¸ÇÕ´Ï´Ù.
+--group by ë¥¼ ì ìš©í•˜ì—¬ ì—…ë¬´ë³„ë¡œ count, avg êµ¬í•©ë‹ˆë‹¤.
 SELECT JOB_ID , COUNT(*), AVG(salary)
 FROM EMPLOYEES e 
 GROUP BY JOB_ID ;
 
---ºÎ¼­º° count ,avg  (±×·ìÇÔ¼ö °á°ú¿Í ÇÔ²² Á¶È¸ÇÒ ¼ö ÀÖ´Â ÄÃ·³Àº ±×·ìÈ­ ÄÃ·³¸¸ °¡´ÉÇÕ´Ï´Ù.)
+--ë¶€ì„œë³„ count ,avg  (ê·¸ë£¹í•¨ìˆ˜ ê²°ê³¼ì™€ í•¨ê»˜ ì¡°íšŒí•  ìˆ˜ ìžˆëŠ” ì»¬ëŸ¼ì€ ê·¸ë£¹í™” ì»¬ëŸ¼ë§Œ ê°€ëŠ¥í•©ë‹ˆë‹¤.)
 SELECT DEPARTMENT_ID , COUNT(*), AVG(salary)
 FROM EMPLOYEES e 
 GROUP BY DEPARTMENT_ID ;
 
---departments Å×ÀÌºí°ú À§ÀÇ ºÎ¼­º° Áý°è¸¦ join -> ºÎ¼­¸í Á¶È¸
+--departments í…Œì´ë¸”ê³¼ ìœ„ì˜ ë¶€ì„œë³„ ì§‘ê³„ë¥¼ join -> ë¶€ì„œëª… ì¡°íšŒ
 
 SELECT * FROM DEPARTMENTS d ,
-	(SELECT DEPARTMENT_ID , COUNT(*) AS "ÀÎ¿ø¼ö", AVG(salary) AS "Æò±Õ"
+	(SELECT DEPARTMENT_ID , COUNT(*) AS "ì¸ì›ìˆ˜", AVG(salary) AS "í‰ê· "
 	FROM EMPLOYEES e 
 	GROUP BY DEPARTMENT_ID ) d2
 WHERE  d.DEPARTMENT_ID = d2.DEPARTMENT_ID;
 
---¿øÇÏ´Â ÄÃ·³¸¸ Á¶È¸
-SELECT d.DEPARTMENT_ID , d.DEPARTMENT_NAME, d2."ÀÎ¿ø¼ö", d2."Æò±Õ" 
+--ì›í•˜ëŠ” ì»¬ëŸ¼ë§Œ ì¡°íšŒ
+SELECT d.DEPARTMENT_ID , d.DEPARTMENT_NAME, d2."ì¸ì›ìˆ˜", d2."í‰ê· " 
 FROM DEPARTMENTS d ,
-	(SELECT DEPARTMENT_ID , COUNT(*) AS "ÀÎ¿ø¼ö", AVG(salary) AS "Æò±Õ"
+	(SELECT DEPARTMENT_ID , COUNT(*) AS "ì¸ì›ìˆ˜", AVG(salary) AS "í‰ê· "
 	FROM EMPLOYEES e 
 	GROUP BY DEPARTMENT_ID ) d2
 WHERE  d.DEPARTMENT_ID = d2.DEPARTMENT_ID;
 
---Á¶È¸ °á°ú Ãâ·ÂµÇ´Â ÇàÀÇ ¼ø¼­¸¦ ÀÎ¿ø¼ö ³»¸²Â÷¼ø
-SELECT d.DEPARTMENT_ID , d.DEPARTMENT_NAME, d2."ÀÎ¿ø¼ö", d2."Æò±Õ" 
+--ì¡°íšŒ ê²°ê³¼ ì¶œë ¥ë˜ëŠ” í–‰ì˜ ìˆœì„œë¥¼ ì¸ì›ìˆ˜ ë‚´ë¦¼ì°¨ìˆœ
+SELECT d.DEPARTMENT_ID , d.DEPARTMENT_NAME, d2."ì¸ì›ìˆ˜", d2."í‰ê· " 
 FROM DEPARTMENTS d ,
-	(SELECT DEPARTMENT_ID , COUNT(*) AS "ÀÎ¿ø¼ö", AVG(salary) AS "Æò±Õ"
+	(SELECT DEPARTMENT_ID , COUNT(*) AS "ì¸ì›ìˆ˜", AVG(salary) AS "í‰ê· "
 	FROM EMPLOYEES e 
 	GROUP BY DEPARTMENT_ID ) d2
 WHERE  d.DEPARTMENT_ID = d2.DEPARTMENT_ID
-ORDER BY d2."ÀÎ¿ø¼ö" DESC;
+ORDER BY d2."ì¸ì›ìˆ˜" DESC;
 
---Æò±Õ ±Þ¿© ¿À¸§Â÷¼ø
-SELECT d.DEPARTMENT_ID , d.DEPARTMENT_NAME, d2."ÀÎ¿ø¼ö", d2."Æò±Õ" 
+--í‰ê·  ê¸‰ì—¬ ì˜¤ë¦„ì°¨ìˆœ
+SELECT d.DEPARTMENT_ID , d.DEPARTMENT_NAME, d2."ì¸ì›ìˆ˜", d2."í‰ê· " 
 FROM DEPARTMENTS d ,
-	(SELECT DEPARTMENT_ID , COUNT(*) AS "ÀÎ¿ø¼ö", AVG(salary) AS "Æò±Õ"
+	(SELECT DEPARTMENT_ID , COUNT(*) AS "ì¸ì›ìˆ˜", AVG(salary) AS "í‰ê· "
 	FROM EMPLOYEES e 
 	GROUP BY DEPARTMENT_ID ) d2
 WHERE  d.DEPARTMENT_ID = d2.DEPARTMENT_ID
-ORDER BY d2."Æò±Õ" ;
+ORDER BY d2."í‰ê· " ;
 
---ÀÚ¸´¼ö ÁöÁ¤ÇÔ¼ö : ³»¸² trunc, ¿Ã¸² ceil, ¹Ý¿Ã¸² round
-SELECT d.DEPARTMENT_ID , d.DEPARTMENT_NAME, d2."ÀÎ¿ø¼ö", d2."Æò±Õ" 
+--ìžë¦¿ìˆ˜ ì§€ì •í•¨ìˆ˜ : ë‚´ë¦¼ trunc, ì˜¬ë¦¼ ceil, ë°˜ì˜¬ë¦¼ round
+SELECT d.DEPARTMENT_ID , d.DEPARTMENT_NAME, d2."ì¸ì›ìˆ˜", d2."í‰ê· " 
 FROM DEPARTMENTS d ,
-	(SELECT DEPARTMENT_ID , COUNT(*) AS "ÀÎ¿ø¼ö", ROUND(AVG(salary),0) AS "Æò±Õ"
+	(SELECT DEPARTMENT_ID , COUNT(*) AS "ì¸ì›ìˆ˜", ROUND(AVG(salary),0) AS "í‰ê· "
 	FROM EMPLOYEES e 
 	GROUP BY DEPARTMENT_ID ) d2
 WHERE  d.DEPARTMENT_ID = d2.DEPARTMENT_ID
-ORDER BY d2."Æò±Õ" ;
+ORDER BY d2."í‰ê· " ;
 
---À§ÀÇ group by °á°ú¿¡¼­ Æò±Õ±Ý¾×ÀÌ 8000 ÀÌ»óÀÎ ºÎ¼­¸¸ Á¶È¸ÇÑ´Ù¸é?
-SELECT DEPARTMENT_ID , COUNT(*) AS "ÀÎ¿ø¼ö", ROUND(AVG(salary),0) AS "Æò±Õ"
+--ìœ„ì˜ group by ê²°ê³¼ì—ì„œ í‰ê· ê¸ˆì•¡ì´ 8000 ì´ìƒì¸ ë¶€ì„œë§Œ ì¡°íšŒí•œë‹¤ë©´?
+SELECT DEPARTMENT_ID , COUNT(*) AS "ì¸ì›ìˆ˜", ROUND(AVG(salary),0) AS "í‰ê· "
 FROM EMPLOYEES e 
--- WHERE e."Æò±Õ" > 8000  -- ¿À·ù : Áý°èÇÔ¼ö °á°ú °ªÀ» WHERE Á¶°ÇÀ¸·Î »ç¿ë X
+-- WHERE e."í‰ê· " > 8000  -- ì˜¤ë¥˜ : ì§‘ê³„í•¨ìˆ˜ ê²°ê³¼ ê°’ì„ WHERE ì¡°ê±´ìœ¼ë¡œ ì‚¬ìš© X
 GROUP BY DEPARTMENT_ID
-HAVING AVG(salary) > 8000 --HAVING : Áý°èÇÔ¼ö °á°ú°ªÀ¸·Î Á¶°Ç½ÄÀ» Á÷Á¢ »ç¿ë°¡´ÉÇÕ´Ï´Ù. ÀÏ¹Ý ÄÃ·³µµ °¡´É
-ORDER BY "Æò±Õ";
+HAVING AVG(salary) > 8000 --HAVING : ì§‘ê³„í•¨ìˆ˜ ê²°ê³¼ê°’ìœ¼ë¡œ ì¡°ê±´ì‹ì„ ì§ì ‘ ì‚¬ìš©ê°€ëŠ¥í•©ë‹ˆë‹¤. ì¼ë°˜ ì»¬ëŸ¼ë„ ê°€ëŠ¥
+ORDER BY "í‰ê· ";
 
---¼ø¼­ : from -> where -> group by -> HAVING -> order by
+--ìˆœì„œ : from -> where -> group by -> HAVING -> order by
 
---ALL Å°¿öµå : job_id°¡ ST_CLERTÀÎ ¸ðµç Á÷¿øµéÀÇ ±Þ¿©º¸´Ù ¸¹ÀÌ ¹Þ´Â Á÷¿øµé Á¶È¸
---			±âÁ¸ ¹æ¹ýÀº max °ªº¸´Ù Å« °ÍÀ» Ã£´Â °Í. -> ALL Å°¿öµå·Î ¹Ù²ãº¸¸é
+--ALL í‚¤ì›Œë“œ : job_idê°€ ST_CLERTì¸ ëª¨ë“  ì§ì›ë“¤ì˜ ê¸‰ì—¬ë³´ë‹¤ ë§Žì´ ë°›ëŠ” ì§ì›ë“¤ ì¡°íšŒ
+--			ê¸°ì¡´ ë°©ë²•ì€ max ê°’ë³´ë‹¤ í° ê²ƒì„ ì°¾ëŠ” ê²ƒ. -> ALL í‚¤ì›Œë“œë¡œ ë°”ê¿”ë³´ë©´
 
---EMPLOYEES Å×ÀÌºí ¿ø·¡ ¼ø¼­·Î ³õ°í max °ªº¸´Ù Å« °Í¸¸ °á°ú·Î ÃßÃâÇÕ´Ï´Ù.
+--EMPLOYEES í…Œì´ë¸” ì›ëž˜ ìˆœì„œë¡œ ë†“ê³  max ê°’ë³´ë‹¤ í° ê²ƒë§Œ ê²°ê³¼ë¡œ ì¶”ì¶œí•©ë‹ˆë‹¤.
 SELECT last_name, salary, job_id FROM EMPLOYEES e 
 WHERE SALARY > (SELECT MAX(SALARY) FROM EMPLOYEES e2 WHERE JOB_ID = 'ST_CLERK');
 
---ÇàÀ» salary ÄÃ·³À¸·Î Á¤·ÄÇÏ°í Á¶°Ç¿¡ ¸Â´Â °Í¸¸ ÃßÃâÇÕ´Ï´Ù.
+--í–‰ì„ salary ì»¬ëŸ¼ìœ¼ë¡œ ì •ë ¬í•˜ê³  ì¡°ê±´ì— ë§žëŠ” ê²ƒë§Œ ì¶”ì¶œí•©ë‹ˆë‹¤.
 SELECT last_name, salary, job_id FROM EMPLOYEES e 
 WHERE SALARY > ALL(SELECT SALARY FROM EMPLOYEES e2 WHERE JOB_ID = 'ST_CLERK');

@@ -1,12 +1,12 @@
---view : °¡»ó Å×ÀÌºí(¹°¸®ÀûÀ¸·Î Á¸ÀçÇÏÁö ¾Ê°í ³í¸®ÀûÀ¸·Î ¸¸µé¾îÁø Å×ÀÌºí)
---			¤¤ ¹°¸®ÀûÀÎ Å×ÀÌºíÀ» ÀÌ¿ëÇÏ¿© »ı¼ºÇÕ´Ï´Ù.
---			¤¤ »ç¿ëÀÚ(°³¹ßÀÚ)°¡ Å×ÀÌºíÃ³·³ SELECT¸¦ Á¶È¸ÇÒ ¼ö ÀÖ´Â Å×ÀÌºí
---			¤¤ grant resource, connect to idev; -> resource¿¡ view »ı¼ºÀº Á¦¿ÜÀÔ´Ï´Ù.
+--view : ê°€ìƒ í…Œì´ë¸”(ë¬¼ë¦¬ì ìœ¼ë¡œ ì¡´ì¬í•˜ì§€ ì•Šê³  ë…¼ë¦¬ì ìœ¼ë¡œ ë§Œë“¤ì–´ì§„ í…Œì´ë¸”)
+--			ã„´ ë¬¼ë¦¬ì ì¸ í…Œì´ë¸”ì„ ì´ìš©í•˜ì—¬ ìƒì„±í•©ë‹ˆë‹¤.
+--			ã„´ ì‚¬ìš©ì(ê°œë°œì)ê°€ í…Œì´ë¸”ì²˜ëŸ¼ SELECTë¥¼ ì¡°íšŒí•  ìˆ˜ ìˆëŠ” í…Œì´ë¸”
+--			ã„´ grant resource, connect to idev; -> resourceì— view ìƒì„±ì€ ì œì™¸ì…ë‹ˆë‹¤.
 
 CREATE VIEW v_buy
 AS
 SELECT pcode, custom_id FROM tbl_buy#;
-/*	idev À¯Àú¿¡°Ô create view ±ÇÇÑÀ» ÁÖ¼¼¿ä(sql plus¿¡¼­ ½ÇÇàÇÏ±â)
+/*	idev ìœ ì €ì—ê²Œ create view ê¶Œí•œì„ ì£¼ì„¸ìš”(sql plusì—ì„œ ì‹¤í–‰í•˜ê¸°)
 SQL> connect system
 Enter password:
 Connected.
@@ -15,11 +15,11 @@ SQL> grant create view to idev;
 Grant succeeded.
 */
 
---view¸¦ ÀÌ¿ëÇÑ select Á¶È¸
+--viewë¥¼ ì´ìš©í•œ select ì¡°íšŒ
 SELECT * FROM V_BUY vb WHERE pcode='dk_143';
 
---buy#, custom#À» Á¶ÀÎÇÏ¿© custom_id ,pcode ,°í°´ÀÌ¸§,ÀÌ¸ŞÀÏ,±¸¸Å¼ö·®,±¸¸Å³¯Â¥
--- ¤¤ v_sale ÀÌ¸§ÀÇ view¸¦ ¸¸µå¼¼¿ä
+--buy#, custom#ì„ ì¡°ì¸í•˜ì—¬ custom_id ,pcode ,ê³ ê°ì´ë¦„,ì´ë©”ì¼,êµ¬ë§¤ìˆ˜ëŸ‰,êµ¬ë§¤ë‚ ì§œ
+-- ã„´ v_sale ì´ë¦„ì˜ viewë¥¼ ë§Œë“œì„¸ìš”
 
 CREATE VIEW v_sale
 AS

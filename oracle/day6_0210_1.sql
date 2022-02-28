@@ -1,7 +1,7 @@
---DISTINCT : º°°³ÀÇ
+--DISTINCT : ë³„ê°œì˜
 
-SELECT pcode FROM "TBL_PRODUCT#" tp ;	--Âü°í
-SELECT pcode FROM "TBL_BUY#" tb  ;		--¸ðµç Çà¿¡ pcode ÄÃ·³À» Á¶È¸
+SELECT pcode FROM "TBL_PRODUCT#" tp ;	--ì°¸ê³ 
+SELECT pcode FROM "TBL_BUY#" tb  ;		--ëª¨ë“  í–‰ì— pcode ì»¬ëŸ¼ì„ ì¡°íšŒ
 
-SELECT DISTINCT pcode FROM "TBL_BUY#" tb ; --pcode °ª Áß¿¡ µ¿ÀÏÇÑ °ÍÀº ÇÑ ¹ø¸¸ Á¶È¸µË´Ï´Ù.
+SELECT DISTINCT pcode FROM "TBL_BUY#" tb ; --pcode ê°’ ì¤‘ì— ë™ì¼í•œ ê²ƒì€ í•œ ë²ˆë§Œ ì¡°íšŒë©ë‹ˆë‹¤.
 

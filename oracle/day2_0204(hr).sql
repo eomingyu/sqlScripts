@@ -1,61 +1,61 @@
--- ¿¬½À¹®Á¦ : ÀÛ¼ºÀÚ ¾î¹Î±Ô
+-- ì—°ìŠµë¬¸ì œ : ìž‘ì„±ìž ì–´ë¯¼ê·œ
 
---1. JOBS Å×ÀÌºí ¹®Á¦
---1) MIN_SALARY ÄÃ·³ÀÌ 10000ÀÌ»óÀÎ JOB_TITLE Á¶È¸
+--1. JOBS í…Œì´ë¸” ë¬¸ì œ
+--1) MIN_SALARY ì»¬ëŸ¼ì´ 10000ì´ìƒì¸ JOB_TITLE ì¡°íšŒ
 SELECT JOB_TITLE FROM JOBS j WHERE MIN_SALARY >=10000;
 
---2) JOB_TITLE ÄÃ·³ÀÌ PROGRAMMERÀÎ ÇàÀÇ ¸ðµç ÄÃ·³ Á¶È¸
+--2) JOB_TITLE ì»¬ëŸ¼ì´ PROGRAMMERì¸ í–‰ì˜ ëª¨ë“  ì»¬ëŸ¼ ì¡°íšŒ
 SELECT * FROM JOBS j WHERE JOB_TITLE ='Programmer';
--- ´ë¼Ò¹®ÀÚ »ó°ü¾øÀÌ Á¶°Ç °Ë»öÇÑ´Ù¸é ¹®ÀÚ¿­ °ü·Ã ¿À¶óÅ¬ ÇÔ¼ö : UPPER(), LOWER()
+-- ëŒ€ì†Œë¬¸ìž ìƒê´€ì—†ì´ ì¡°ê±´ ê²€ìƒ‰í•œë‹¤ë©´ ë¬¸ìžì—´ ê´€ë ¨ ì˜¤ë¼í´ í•¨ìˆ˜ : UPPER(), LOWER()
 SELECT * FROM JOBS j WHERE UPPER(JOB_TITLE) ='PROGRAMMER';
 SELECT * FROM JOBS j WHERE LOWER(JOB_TITLE) ='programmer';
 
---3) MAX_SALARY ÄÃ·³ÀÇ ÃÖ´ë°ª Á¶È¸
+--3) MAX_SALARY ì»¬ëŸ¼ì˜ ìµœëŒ€ê°’ ì¡°íšŒ
 SELECT MAX(MAX_SALARY) FROM JOBS j ;
 
---2. LOCATIONS Å×ÀÌºí ¹®Á¦
---1) CITY ÇÊµå°ªÀÌ LONDONÀÎ POSTAL_CODE ÄÃ·³ Á¶È¸
+--2. LOCATIONS í…Œì´ë¸” ë¬¸ì œ
+--1) CITY í•„ë“œê°’ì´ LONDONì¸ POSTAL_CODE ì»¬ëŸ¼ ì¡°íšŒ
 SELECT POSTAL_CODE FROM LOCATIONS l WHERE CITY ='London';
 
---2) LOCATION_ID ÄÃ·³ÀÌ 1700, 2700, 2500ÀÌ ¾Æ´Ï°í CITY ÄÃ·³ÀÌ TokyoÀÎ ÇàÀÇ ¸ðµç ÄÃ·³ Á¶È¸
+--2) LOCATION_ID ì»¬ëŸ¼ì´ 1700, 2700, 2500ì´ ì•„ë‹ˆê³  CITY ì»¬ëŸ¼ì´ Tokyoì¸ í–‰ì˜ ëª¨ë“  ì»¬ëŸ¼ ì¡°íšŒ
 SELECT * FROM LOCATIONS l WHERE LOCATION_ID NOT IN (1700,2500,2700) AND  CITY = 'Tokyo';
 
---3. EMPLOYEES Å×ÀÌºí
--- Åë°è ÇÔ¼ö(Áý°è ÇÔ¼ö)¸¦ Á» ´õ ¿¬½ÀÇÕ´Ï´Ù.
-SELECT COUNT(*) FROM EMPLOYEES e ;							 --ÃÑ Á÷¿ø ¼ö : 107
-SELECT COUNT(*) FROM EMPLOYEES e WHERE JOB_ID ='IT_PROG';	 --Á¶°Ç JOB_ID Á÷¿ø ¼ö : 5
+--3. EMPLOYEES í…Œì´ë¸”
+-- í†µê³„ í•¨ìˆ˜(ì§‘ê³„ í•¨ìˆ˜)ë¥¼ ì¢€ ë” ì—°ìŠµí•©ë‹ˆë‹¤.
+SELECT COUNT(*) FROM EMPLOYEES e ;							 --ì´ ì§ì› ìˆ˜ : 107
+SELECT COUNT(*) FROM EMPLOYEES e WHERE JOB_ID ='IT_PROG';	 --ì¡°ê±´ JOB_ID ì§ì› ìˆ˜ : 5
 
-SELECT AVG(SALARY) FROM EMPLOYEES e ; 						 --Á÷¿ø Æò±Õ ±Þ¿© : 6461.83
-SELECT AVG(SALARY) FROM EMPLOYEES e WHERE JOB_ID ='IT_PROG'; --Á¶°Ç JOB_ID Æò±Õ ±Þ¿© : 5760
+SELECT AVG(SALARY) FROM EMPLOYEES e ; 						 --ì§ì› í‰ê·  ê¸‰ì—¬ : 6461.83
+SELECT AVG(SALARY) FROM EMPLOYEES e WHERE JOB_ID ='IT_PROG'; --ì¡°ê±´ JOB_ID í‰ê·  ê¸‰ì—¬ : 5760
 
-SELECT MAX(SALARY) FROM EMPLOYEES e ;						 --Á÷¿ø Áß ÃÖ°í ±Þ¿© : 24000
-SELECT MAX(SALARY) FROM EMPLOYEES e WHERE JOB_ID ='IT_PROG'; --Á¶°Ç JOB_ID  ÃÖ°í ±Þ¿© : 9000
+SELECT MAX(SALARY) FROM EMPLOYEES e ;						 --ì§ì› ì¤‘ ìµœê³  ê¸‰ì—¬ : 24000
+SELECT MAX(SALARY) FROM EMPLOYEES e WHERE JOB_ID ='IT_PROG'; --ì¡°ê±´ JOB_ID  ìµœê³  ê¸‰ì—¬ : 9000
 
-SELECT MIN(SALARY) FROM EMPLOYEES e ; 						 --Á÷¿ø Áß ÃÖ¼Ò ±Þ¿© : 2100
-SELECT MIN(SALARY) FROM EMPLOYEES e WHERE JOB_ID ='IT_PROG'; --Á¶°Ç JOB_ID ÃÖ¼Ò ±Þ¿© : 4200
+SELECT MIN(SALARY) FROM EMPLOYEES e ; 						 --ì§ì› ì¤‘ ìµœì†Œ ê¸‰ì—¬ : 2100
+SELECT MIN(SALARY) FROM EMPLOYEES e WHERE JOB_ID ='IT_PROG'; --ì¡°ê±´ JOB_ID ìµœì†Œ ê¸‰ì—¬ : 4200
 
--- Åë°è ÇÔ¼ö´Â ±×·ì ÇÔ¼öÀÔ´Ï´Ù. ÇØ´ç ÇÔ¼ö °á°ú °ªÀ» ±¸ÇÏ±â À§ÇØ µ¥ÀÌÅÍ¸¦ ±×·ìÈ­ÇÏ°í ½ÇÇàÇÕ´Ï´Ù.
--- ±×·ìÇÔ¼ö °á°ú¿Í ´Ù¸¥ ÄÃ·³À» °°ÀÌ Á¶È¸ÇÒ ¼ö ¾ø½À´Ï´Ù. ¾Æ·¡ SQLÀº ¿À·ùÀÔ´Ï´Ù.
+-- í†µê³„ í•¨ìˆ˜ëŠ” ê·¸ë£¹ í•¨ìˆ˜ìž…ë‹ˆë‹¤. í•´ë‹¹ í•¨ìˆ˜ ê²°ê³¼ ê°’ì„ êµ¬í•˜ê¸° ìœ„í•´ ë°ì´í„°ë¥¼ ê·¸ë£¹í™”í•˜ê³  ì‹¤í–‰í•©ë‹ˆë‹¤.
+-- ê·¸ë£¹í•¨ìˆ˜ ê²°ê³¼ì™€ ë‹¤ë¥¸ ì»¬ëŸ¼ì„ ê°™ì´ ì¡°íšŒí•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ì•„ëž˜ SQLì€ ì˜¤ë¥˜ìž…ë‹ˆë‹¤.
 -- SELECT JOB_ID , MAX(SALARY) FROM EMPLOYEES e ;
 SELECT * FROM EMPLOYEES e2 WHERE SALARY =(
---À§ÀÇ AVG,MAX,MIN ±¸ÇÑ SQL ¸í·ÉÀ» ÇÏ³ª¾¿ ¿©±â¿¡ ³Ö¾îº¸¼¼¿ä.  ±× ÀÇ¹Ì¸¦ ÆÄ¾ÇÇØ º¾½Ã´Ù.
+--ìœ„ì˜ AVG,MAX,MIN êµ¬í•œ SQL ëª…ë ¹ì„ í•˜ë‚˜ì”© ì—¬ê¸°ì— ë„£ì–´ë³´ì„¸ìš”.  ê·¸ ì˜ë¯¸ë¥¼ íŒŒì•…í•´ ë´…ì‹œë‹¤.
 --SELECT MAX(SALARY) FROM EMPLOYEES e
 --SELECT MAX(SALARY) FROM EMPLOYEES e WHERE JOB_ID ='IT_PROG' 
 --SELECT MIN(SALARY) FROM EMPLOYEES e
 SELECT MIN(SALARY) FROM EMPLOYEES e WHERE JOB_ID ='IT_PROG'
 );
--- SELECT ¾È¿¡ ¾²ÀÎ ¶Ç ´Ù¸¥ SELECT ´Â ¼­ºêÄõ¸®ÀÔ´Ï´Ù. ¼­ºêÄõ¸® °á°ú°ªÀÌ 1°³ÀÌ¹Ç·Î = Á¶°Ç½Ä¿¡ »ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.
+-- SELECT ì•ˆì— ì“°ì¸ ë˜ ë‹¤ë¥¸ SELECT ëŠ” ì„œë¸Œì¿¼ë¦¬ìž…ë‹ˆë‹¤. ì„œë¸Œì¿¼ë¦¬ ê²°ê³¼ê°’ì´ 1ê°œì´ë¯€ë¡œ = ì¡°ê±´ì‹ì— ì‚¬ìš©í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 
--- IT_PROG Áß¿¡¼­ ÃÖ¼Ò±Þ¿©¸¦ ¹Þ´Â »ç¶÷ÀÇ FIRST_NAME ,LAST_NAME  ÄÃ·³ Á¶È¸ÇÏ±â
+-- IT_PROG ì¤‘ì—ì„œ ìµœì†Œê¸‰ì—¬ë¥¼ ë°›ëŠ” ì‚¬ëžŒì˜ FIRST_NAME ,LAST_NAME  ì»¬ëŸ¼ ì¡°íšŒí•˜ê¸°
 SELECT FIRST_NAME ,LAST_NAME FROM EMPLOYEES e2 
 WHERE SALARY =(SELECT MIN(SALARY) FROM EMPLOYEES e WHERE JOB_ID ='IT_PROG')
 	AND JOB_ID ='IT_PROG';
 
---¹ÌÇØ°á>>Ãß°¡ : MIN_SALARY ÀÇ Æò±Õ°ªº¸´Ù ÀÛÀº ÇàÀÇ JOB_ID, JOB_TITLE  ÄÃ·³ Á¶È¸ 
---¾Æ·¡ ¸í·ÉÀº ¿À·ù -> ±×·ìÇÔ¼ö´Â ¹Ýµå½Ã SELECT ¹®À¸·Î »ç¿ëÇÕ´Ï´Ù.
+--ë¯¸í•´ê²°>>ì¶”ê°€ : MIN_SALARY ì˜ í‰ê· ê°’ë³´ë‹¤ ìž‘ì€ í–‰ì˜ JOB_ID, JOB_TITLE  ì»¬ëŸ¼ ì¡°íšŒ 
+--ì•„ëž˜ ëª…ë ¹ì€ ì˜¤ë¥˜ -> ê·¸ë£¹í•¨ìˆ˜ëŠ” ë°˜ë“œì‹œ SELECT ë¬¸ìœ¼ë¡œ ì‚¬ìš©í•©ë‹ˆë‹¤.
 --SELECT JOB_ID ,JOB_TITLE FROM JOBS j WHERE MIN_SALARY <AVG(MIN_SALARY); 
 
---Æò±Õ°ª
+--í‰ê· ê°’
 SELECT AVG(MIN_SALARY) FROM JOBS j2
---Æò±Õ°ªÀ» Á¶°Ç½Ä¿¡ ÀÌ¿ëÇÏ±â(¼­ºêÄõ¸®)
+--í‰ê· ê°’ì„ ì¡°ê±´ì‹ì— ì´ìš©í•˜ê¸°(ì„œë¸Œì¿¼ë¦¬)
 SELECT JOB_ID ,JOB_TITLE FROM JOBS j WHERE MIN_SALARY <(SELECT AVG(MIN_SALARY) FROM JOBS j2);

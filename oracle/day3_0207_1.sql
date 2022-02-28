@@ -1,40 +1,40 @@
--- µ¥ÀÌÅÍ Å¸ÀÔ number ¿¬½À Å×ÀÌºí
--- number : ÀÚ¹Ù byte, short, int, long, float, double ÇØ´ç
---			number(Á¤¹Ðµµ, ¼Ò¼öÁ¡ ÀÚ¸®¼ö)
+-- ë°ì´í„° íƒ€ìž… number ì—°ìŠµ í…Œì´ë¸”
+-- number : ìžë°” byte, short, int, long, float, double í•´ë‹¹
+--			number(ì •ë°€ë„, ì†Œìˆ˜ì  ìžë¦¬ìˆ˜)
 
 CREATE TABLE table_number(
-	col1 NUMBER,	--ÀÚ¸´¼ö¸¦ ÁöÁ¤ÇÏÁö ¾ÊÀ¸¸é ÃÖ´ë 38ÀÚ¸®ÀÔ´Ï´Ù.(ÀÚ¹ÙÀÇ BigDecimal)
+	col1 NUMBER,	--ìžë¦¿ìˆ˜ë¥¼ ì§€ì •í•˜ì§€ ì•Šìœ¼ë©´ ìµœëŒ€ 38ìžë¦¬ìž…ë‹ˆë‹¤.(ìžë°”ì˜ BigDecimal)
 	col2 NUMBER(5),
 	col3 NUMBER(7,2),
 	col4 NUMBER(2,5)
 );
---Á¤»ó½ÇÇà
+--ì •ìƒì‹¤í–‰
 INSERT INTO IDEV.TABLE_NUMBER
 (COL1, COL2, COL3, COL4)
 VALUES(1234567, 12345, 12345.67, 0.00012);
 
---col2 ÄÃ·³ÀÇ ÀÚ¸´¼ö°¡ 6°³ : ¿À·ù
+--col2 ì»¬ëŸ¼ì˜ ìžë¦¿ìˆ˜ê°€ 6ê°œ : ì˜¤ë¥˜
 INSERT INTO IDEV.TABLE_NUMBER
 (COL1, COL2, COL3, COL4)
 VALUES(1234567, 123456, 12345.67, 0.00012);
 
---col3 ÄÃ·³Àº ¼Ò¼öÁ¡ ÀÌÇÏ ÀÚ¸´¼ö 2°³ : ¹Ý¿Ã¸²
+--col3 ì»¬ëŸ¼ì€ ì†Œìˆ˜ì  ì´í•˜ ìžë¦¿ìˆ˜ 2ê°œ : ë°˜ì˜¬ë¦¼
 INSERT INTO IDEV.TABLE_NUMBER
 (COL1, COL2, COL3, COL4)
 VALUES(1234567, 12345, 12345.678, 0.00012);
 
---col3 ÄÃ·³ ÀüÃ¼ ÀÚ¸´¼ö 7°³ : ¼Ò¼öÁ¡ ÀÌÇÏ Ç×»ó 2°³, ±×¸®°í Á¤¼öÀÚ¸´¼ö 5°³ -> ÀÚ¸´¼ö ÃÊ°ú ¿À·ù
+--col3 ì»¬ëŸ¼ ì „ì²´ ìžë¦¿ìˆ˜ 7ê°œ : ì†Œìˆ˜ì  ì´í•˜ í•­ìƒ 2ê°œ, ê·¸ë¦¬ê³  ì •ìˆ˜ìžë¦¿ìˆ˜ 5ê°œ -> ìžë¦¿ìˆ˜ ì´ˆê³¼ ì˜¤ë¥˜
 INSERT INTO IDEV.TABLE_NUMBER
 (COL1, COL2, COL3, COL4)
 VALUES(1234567, 12345, 123456.67, 0.00012);
 
---col4 ÄÃ·³Àº number(2,5) : ÀüÃ¼ À¯È¿ÀÚ¸´¼ö : 5°³,
---		ÀÌ ¶§ Ç×»ó À¯È¿ÀÚ¸´¼ö ÃÖ´ë 2°³(0 Æ÷ÇÔ °¡´É), ³ª¸ÓÁö 3°³´Â 0
+--col4 ì»¬ëŸ¼ì€ number(2,5) : ì „ì²´ ìœ íš¨ìžë¦¿ìˆ˜ : 5ê°œ,
+--		ì´ ë•Œ í•­ìƒ ìœ íš¨ìžë¦¿ìˆ˜ ìµœëŒ€ 2ê°œ(0 í¬í•¨ ê°€ëŠ¥), ë‚˜ë¨¸ì§€ 3ê°œëŠ” 0
 INSERT INTO IDEV.TABLE_NUMBER
 (COL1, COL2, COL3, COL4)
 VALUES(1234567, 12345, 12345.67, 0.000125);
 
---col4 ÄÃ·³Àº number(2,5) : ³ª¸ÓÁö 3°³´Â À¯È¿ÀÚ¸´¼ö 0 -> ÀÌ°ÍÀÌ ¾Æ´Ï¸é ¿À·ù
+--col4 ì»¬ëŸ¼ì€ number(2,5) : ë‚˜ë¨¸ì§€ 3ê°œëŠ” ìœ íš¨ìžë¦¿ìˆ˜ 0 -> ì´ê²ƒì´ ì•„ë‹ˆë©´ ì˜¤ë¥˜
 INSERT INTO IDEV.TABLE_NUMBER
 (COL1, COL2, COL3, COL4)
 VALUES(1234567, 12345, 12345.67, 0.0012);

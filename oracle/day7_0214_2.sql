@@ -1,4 +1,4 @@
---¼ø¼­ : Å×ÀÌºí »ı¼º -> µ¥ÀÌÅÍ Ãß°¡ -> ¶ó) È¸¿ø¸ÅÃâÁ¶È¸ dbÄõ¸® ÀÛ¼º(DECODE) -> ÀÚ¹Ù¿¡¼­ Á¶È¸µÉ¼ö ÀÖµµ·Ï dao,vo Å¬·¡½º¸¦ ÄÚµùÇÏ¼¼¿ä.
+--ìˆœì„œ : í…Œì´ë¸” ìƒì„± -> ë°ì´í„° ì¶”ê°€ -> ë¼) íšŒì›ë§¤ì¶œì¡°íšŒ dbì¿¼ë¦¬ ì‘ì„±(DECODE) -> ìë°”ì—ì„œ ì¡°íšŒë ìˆ˜ ìˆë„ë¡ dao,vo í´ë˜ìŠ¤ë¥¼ ì½”ë”©í•˜ì„¸ìš”.
 CREATE TABLE member_tbl_02 (
 	custno NUMBER(6) NOT NULL,
 	custname VARCHAR2(20),
@@ -25,17 +25,17 @@ CREATE SEQUENCE member_seq INCREMENT BY 1
 START WITH 100001;
 
 INSERT INTO MEMBER_TBL_02(custno,custname,phone,address,joindate,grade,city)
-VALUES (MEMBER_SEQ.nextval,'±èÇàº¹','010-1111-2222','¼­¿ï µ¿´ë¹®±¸ ÈÖ°æ1µ¿','20151202','A','01');
+VALUES (MEMBER_SEQ.nextval,'ê¹€í–‰ë³µ','010-1111-2222','ì„œìš¸ ë™ëŒ€ë¬¸êµ¬ íœ˜ê²½1ë™','20151202','A','01');
 INSERT INTO MEMBER_TBL_02(custno,custname,phone,address,joindate,grade,city)
-VALUES (MEMBER_SEQ.nextval,'ÀÌÃàº¹','010-1111-3333','¼­¿ï µ¿´ë¹®±¸ ÈÖ°æ2µ¿','20151206','B','01');
+VALUES (MEMBER_SEQ.nextval,'ì´ì¶•ë³µ','010-1111-3333','ì„œìš¸ ë™ëŒ€ë¬¸êµ¬ íœ˜ê²½2ë™','20151206','B','01');
 INSERT INTO MEMBER_TBL_02(custno,custname,phone,address,joindate,grade,city)
-VALUES (MEMBER_SEQ.nextval,'Àå¹ÏÀ½','010-1111-4444','¿ï¸ª±º ¿ï¸ªÀ¾ µ¶µµ1¸®','20151001','B','30');
+VALUES (MEMBER_SEQ.nextval,'ì¥ë¯¿ìŒ','010-1111-4444','ìš¸ë¦‰êµ° ìš¸ë¦‰ì ë…ë„1ë¦¬','20151001','B','30');
 INSERT INTO MEMBER_TBL_02(custno,custname,phone,address,joindate,grade,city)
-VALUES (MEMBER_SEQ.nextval,'ÃÖ»ç¶û','010-1111-5555','¿ï¸ª±º ¿ï¸ªÀ¾ µ¶µµ2¸®','20151113','A','30');
+VALUES (MEMBER_SEQ.nextval,'ìµœì‚¬ë‘','010-1111-5555','ìš¸ë¦‰êµ° ìš¸ë¦‰ì ë…ë„2ë¦¬','20151113','A','30');
 INSERT INTO MEMBER_TBL_02(custno,custname,phone,address,joindate,grade,city)
-VALUES (MEMBER_SEQ.nextval,'ÁøÆòÈ­','010-1111-6666','Á¦ÁÖµµ Á¦ÁÖ½Ã ¿Ü³ª¹«°ñ','20151225','B','60');
+VALUES (MEMBER_SEQ.nextval,'ì§„í‰í™”','010-1111-6666','ì œì£¼ë„ ì œì£¼ì‹œ ì™¸ë‚˜ë¬´ê³¨','20151225','B','60');
 INSERT INTO MEMBER_TBL_02(custno,custname,phone,address,joindate,grade,city)
-VALUES (MEMBER_SEQ.nextval,'Â÷°ø´Ü','010-1111-7777','Á¦ÁÖµµ Á¦ÁÖ½Ã °¨³ª¹«°ñ','20151211','C','60');
+VALUES (MEMBER_SEQ.nextval,'ì°¨ê³µë‹¨','010-1111-7777','ì œì£¼ë„ ì œì£¼ì‹œ ê°ë‚˜ë¬´ê³¨','20151211','C','60');
 
 
 INSERT INTO MONEY_TBL_02 (custno,salenol,pcost,amount,price,pcode,sdate)
@@ -62,31 +62,31 @@ VALUES (100004, 20160010, 3000, 1, 3000, 'A007', '20160106');
 SELECT * FROM MEMBER_TBL_02 mt ;
 SELECT * FROM MONEY_TBL_02 mt ;
 
-SELECT mt.custno "È¸¿ø¹øÈ£" , mt.custname "È¸¿ø¼º¸í" , 
-		DECODE(mt.grade,'A','VIP','B','ÀÏ¹İ','C','Á÷¿ø') "°í°´µî±Ş", mt2."¸ÅÃâ"
+SELECT mt.custno "íšŒì›ë²ˆí˜¸" , mt.custname "íšŒì›ì„±ëª…" , 
+		DECODE(mt.grade,'A','VIP','B','ì¼ë°˜','C','ì§ì›') "ê³ ê°ë“±ê¸‰", mt2."ë§¤ì¶œ"
 FROM MEMBER_TBL_02 mt, 
-(SELECT custno, SUM(price) "¸ÅÃâ" FROM MONEY_TBL_02 GROUP BY custno) mt2
+(SELECT custno, SUM(price) "ë§¤ì¶œ" FROM MONEY_TBL_02 GROUP BY custno) mt2
 WHERE mt.CUSTNO =mt2.CUSTNO
-ORDER BY mt2."¸ÅÃâ" DESC;
+ORDER BY mt2."ë§¤ì¶œ" DESC;
 
 
--- step 1) È¸¿øº° ¸ÅÃâÇÕ°è
+-- step 1) íšŒì›ë³„ ë§¤ì¶œí•©ê³„
 SELECT custno, sum(price) FROM MONEY_TBL_02 mt 
 GROUP BY CUSTNO;
 
--- step 2) Á¤·Ä ±âÁØ È®ÀÎÇÏ±â
+-- step 2) ì •ë ¬ ê¸°ì¤€ í™•ì¸í•˜ê¸°
 SELECT custno, sum(price) AS asum FROM MONEY_TBL_02 mt 
 GROUP BY CUSTNO
 ORDER BY asum desc;
 
--- step 3) °í°´Á¤º¸ °¡Á®¿À±âÀ§ÇÑ join  
+-- step 3) ê³ ê°ì •ë³´ ê°€ì ¸ì˜¤ê¸°ìœ„í•œ join  
 SELECT * FROM MEMBER_TBL_02 mt ,
 		(SELECT custno, sum(price) AS asum FROM MONEY_TBL_02 mt 
 		GROUP BY CUSTNO
 		ORDER BY asum desc) sale
 WHERE mt.CUSTNO = sale.custno ;
 
--- step 4) ¿ä±¸»çÇ×¿¡ µû¶ó ÇÊ¿äÇÑ ÄÃ·³¸¸ Á¶È¸ÇÏ±â
+-- step 4) ìš”êµ¬ì‚¬í•­ì— ë”°ë¼ í•„ìš”í•œ ì»¬ëŸ¼ë§Œ ì¡°íšŒí•˜ê¸°
 
 SELECT mt.CUSTNO , CUSTNAME , grade, asum FROM MEMBER_TBL_02 mt ,
 		(SELECT custno, sum(price) AS asum FROM MONEY_TBL_02 mt 
@@ -95,34 +95,34 @@ SELECT mt.CUSTNO , CUSTNAME , grade, asum FROM MEMBER_TBL_02 mt ,
 WHERE mt.CUSTNO = sale.custno ;
 
 
--- step 5) Á¦½ÃÇÑ ¿ä±¸»çÇ×¿¡ µû¶ó ÄÃ·³°á°ú º¯°æÇÏ±â
+-- step 5) ì œì‹œí•œ ìš”êµ¬ì‚¬í•­ì— ë”°ë¼ ì»¬ëŸ¼ê²°ê³¼ ë³€ê²½í•˜ê¸°
 SELECT mt.CUSTNO , CUSTNAME , 
-		decode(grade,'A','VIP','B','ÀÏ¹İ','C','Á÷¿ø') AS agrade, 
+		decode(grade,'A','VIP','B','ì¼ë°˜','C','ì§ì›') AS agrade, 
 		asum FROM MEMBER_TBL_02 mt ,
 		(SELECT custno, sum(price) AS asum FROM MONEY_TBL_02 mt 
 		GROUP BY CUSTNO
 		ORDER BY asum desc) sale
 WHERE mt.CUSTNO = sale.custno ;
 
---¹®Á¦ º¯Çü : "¸ÅÃâÀÌ ¾ø´Â È¸¿øÀº Á¶È¸µÇÁö ¾Ê´Â´Ù."¸¦ "¸ÅÃâÀÌ ¾ø´Â È¸¿øÀº 0À¸·Î Ãâ·ÂÇÑ´Ù."
+--ë¬¸ì œ ë³€í˜• : "ë§¤ì¶œì´ ì—†ëŠ” íšŒì›ì€ ì¡°íšŒë˜ì§€ ì•ŠëŠ”ë‹¤."ë¥¼ "ë§¤ì¶œì´ ì—†ëŠ” íšŒì›ì€ 0ìœ¼ë¡œ ì¶œë ¥í•œë‹¤."
 
---1) nullÀº 0À¸·Î Ãâ·Â : nvl
---2) ¸ğµç È¸¿ø Ãâ·Â :¿ÜºÎÁ¶ÀÎ
---3) ¸ÅÃâÇÕ°è°¡ °°À» ¶§´Â È¸¿ø¹øÈ£ ¼ø¼­(¿À¸§Â÷¼ø)À¸·Î Ãâ·ÂÇÕ´Ï´Ù.(Âü°í:¿ª¼øÀº ³»¸²Â÷¼ø)
+--1) nullì€ 0ìœ¼ë¡œ ì¶œë ¥ : nvl
+--2) ëª¨ë“  íšŒì› ì¶œë ¥ :ì™¸ë¶€ì¡°ì¸
+--3) ë§¤ì¶œí•©ê³„ê°€ ê°™ì„ ë•ŒëŠ” íšŒì›ë²ˆí˜¸ ìˆœì„œ(ì˜¤ë¦„ì°¨ìˆœ)ìœ¼ë¡œ ì¶œë ¥í•©ë‹ˆë‹¤.(ì°¸ê³ :ì—­ìˆœì€ ë‚´ë¦¼ì°¨ìˆœ)
 
 SELECT mt.CUSTNO , CUSTNAME , 
-		decode(grade,'A','VIP','B','ÀÏ¹İ','C','Á÷¿ø') AS agrade, 
+		decode(grade,'A','VIP','B','ì¼ë°˜','C','ì§ì›') AS agrade, 
 		nvl(asum,0) AS sum_ FROM MEMBER_TBL_02 mt ,		--1)
 		(SELECT custno, sum(price) AS asum FROM MONEY_TBL_02 mt 
 		GROUP BY CUSTNO) sale
 WHERE mt.CUSTNO = sale.custno(+)  --2)
 ORDER BY sum_ DESC, custno ;	  --3)
 
---À§ÀÇ °á°ú¸¦ 5)¹ø select ½ÇÇà °á°ú¸¦ view·Î »ı¼ºÇÕ´Ï´Ù.
+--ìœ„ì˜ ê²°ê³¼ë¥¼ 5)ë²ˆ select ì‹¤í–‰ ê²°ê³¼ë¥¼ viewë¡œ ìƒì„±í•©ë‹ˆë‹¤.
 CREATE VIEW v_by_custno
 AS
 SELECT mt.CUSTNO , CUSTNAME , 
-		decode(grade,'A','VIP','B','ÀÏ¹İ','C','Á÷¿ø') AS agrade, 
+		decode(grade,'A','VIP','B','ì¼ë°˜','C','ì§ì›') AS agrade, 
 		asum FROM MEMBER_TBL_02 mt ,
 		(SELECT custno, sum(price) AS asum FROM MONEY_TBL_02 mt 
 		GROUP BY CUSTNO

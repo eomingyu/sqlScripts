@@ -1,12 +1,12 @@
 SELECT * FROM "TBL_PRODUCT#" tp,"TBL_BUY#" tb 
-		 WHERE tp.pcode = tb.pcode;			--µ¿µî Á¶ÀÎ.
+		 WHERE tp.pcode = tb.pcode;			--ë™ë“± ì¡°ì¸.
 		 
---JOIN À» ¾²´Â ¸í·É¹® Çü½Ä(Ç¥ÁØ)
+--JOIN ì„ ì“°ëŠ” ëª…ë ¹ë¬¸ í˜•ì‹(í‘œì¤€)
 SELECT * FROM "TBL_PRODUCT#" tp 
 		 JOIN  "TBL_BUY#" tb 
 		 ON tp.pcode = tb.pcode;
 		 
---º¹½À : ¾ÆÀÌÆÐµå('IPAD011)¸¦ ±¸¸ÅÇÑ »ç¿ëÀÚ ÀÌ¸§°ú ±¸¸Å³¯Â¥ Á¶È¸
+--ë³µìŠµ : ì•„ì´íŒ¨ë“œ('IPAD011)ë¥¼ êµ¬ë§¤í•œ ì‚¬ìš©ìž ì´ë¦„ê³¼ êµ¬ë§¤ë‚ ì§œ ì¡°íšŒ
 		
 SELECT tc.NAME , tb.BUY_DATE FROM "TBL_CUSTOM#" tc  ,"TBL_BUY#" tb 
 		WHERE tc.CUSTOM_ID  = tb.CUSTOM_ID  AND pcode='IPAD011';
@@ -15,50 +15,50 @@ SELECT tc.NAME ,tb.BUY_DATE FROM "TBL_CUSTOM#" tc
 		JOIN  "TBL_BUY#" tb ON tc.CUSTOM_ID =tb.CUSTOM_ID 
 		WHERE pcode = 'IPAD011';
 		
---day5 : ALTER TABLE Çü½Ä
---Å×½ºÆ®¿ë Å×ÀÌºí : ÄÃ·³¸í, °ª µéÀº ÀÇ¹Ì ¾ø½À´Ï´Ù. Çü½Ä°ú Á¦¾àÁ¶°Ç¸¸ ÁÖÀÇÇÏ¼¼¿ä.
+--day5 : ALTER TABLE í˜•ì‹
+--í…ŒìŠ¤íŠ¸ìš© í…Œì´ë¸” : ì»¬ëŸ¼ëª…, ê°’ ë“¤ì€ ì˜ë¯¸ ì—†ìŠµë‹ˆë‹¤. í˜•ì‹ê³¼ ì œì•½ì¡°ê±´ë§Œ ì£¼ì˜í•˜ì„¸ìš”.
 CREATE TABLE tbl#(
 	acol VARCHAR2(30) NOT NULL,
 	bcol VARCHAR2(10),
 	ccol NUMBER(3)
 );
 
-INSERT INTO tbl#(ccol) VALUES(12);				--¿À·ù : NOT NULL ÄÃ·³ °ªÀÌ ÀúÀå ¾È µÊ 
-INSERT INTO tbl#(bcol,ccol) VALUES('xytz',12);	--¿À·ù
-INSERT INTO tbl#(acol,ccol) VALUES('main',12);	--Á¤»ó
+INSERT INTO tbl#(ccol) VALUES(12);				--ì˜¤ë¥˜ : NOT NULL ì»¬ëŸ¼ ê°’ì´ ì €ìž¥ ì•ˆ ë¨ 
+INSERT INTO tbl#(bcol,ccol) VALUES('xytz',12);	--ì˜¤ë¥˜
+INSERT INTO tbl#(acol,ccol) VALUES('main',12);	--ì •ìƒ
 
---ÄÃ·³ Ãß°¡
+--ì»¬ëŸ¼ ì¶”ê°€
 ALTER TABLE tbl# ADD(dcol TIMESTAMP DEFAULT SYSDATE);
 SELECT * FROM tbl#;
 
---ÄÃ·³ º¯°æ
+--ì»¬ëŸ¼ ë³€ê²½
 ALTER TABLE tbl# MODIFY(ccol NUMBER(3) DEFAULT '0');
-INSERT INTO tbl#(acol) VALUES('main');	--ccolÀÌ '0';
---ÄÃ·³ Á¦°Å(DROP)
+INSERT INTO tbl#(acol) VALUES('main');	--ccolì´ '0';
+--ì»¬ëŸ¼ ì œê±°(DROP)
 ALTER TABLE tbl# DROP COLUMN dcol;
 
---Á¦¾àÁ¶°Ç Ãß°¡(Á¦¾àÁ¶°Ç ÀÌ¸§ ÁöÁ¤ ÇÊ¿ä)
+--ì œì•½ì¡°ê±´ ì¶”ê°€(ì œì•½ì¡°ê±´ ì´ë¦„ ì§€ì • í•„ìš”)
 ALTER TABLE tbl# ADD CONSTRAINT pk_tbl# PRIMARY KEY(acol);
---Áßº¹°ªÀÌ ÀÖ´Â°æ¿ì (¹«°á¼º À§¹Ý) Áßº¹µÇ´Â ÇàÀ» »èÁ¦ÇÏ°í ±âº»Å°¸¦ Ãß°¡ÇØ¾ßÇÕ´Ï´Ù.
+--ì¤‘ë³µê°’ì´ ìžˆëŠ”ê²½ìš° (ë¬´ê²°ì„± ìœ„ë°˜) ì¤‘ë³µë˜ëŠ” í–‰ì„ ì‚­ì œí•˜ê³  ê¸°ë³¸í‚¤ë¥¼ ì¶”ê°€í•´ì•¼í•©ë‹ˆë‹¤.
 DELETE FROM tbl# WHERE acol='main'AND ccol='0';
 
---±âÁ¸ Á¦¾àÁ¶°ÇÀº º¯°æ ¸í·É ¾ø½À´Ï´Ù. »èÁ¦ÈÄ Ãß°¡
+--ê¸°ì¡´ ì œì•½ì¡°ê±´ì€ ë³€ê²½ ëª…ë ¹ ì—†ìŠµë‹ˆë‹¤. ì‚­ì œí›„ ì¶”ê°€
 ALTER TABLE tbl# DROP CONSTRAINT pk_tbl#;
 
---tbl# Å×ÀÌºí¿¡ age ÄÃ·³À» »ý¼ºÇÕ´Ï´Ù. check Á¦¾à Á¶°Ç : 16ÀÌ»ó 90ÀÌÇÏÀÇ °ª.
+--tbl# í…Œì´ë¸”ì— age ì»¬ëŸ¼ì„ ìƒì„±í•©ë‹ˆë‹¤. check ì œì•½ ì¡°ê±´ : 16ì´ìƒ 90ì´í•˜ì˜ ê°’.
 ALTER TABLE tbl# ADD age NUMBER(3) CHECK (age BETWEEN 16 AND 90); --age>=16 AND age<=90
-INSERT INTO tbl#(acol,age) VALUES ('app',23);	--½ÇÇà
-INSERT INTO tbl#(acol,age) VALUES ('app2',23);	--½ÇÇà
-INSERT INTO tbl#(acol,age) VALUES ('apps',99);	--¿À·ù
+INSERT INTO tbl#(acol,age) VALUES ('app',23);	--ì‹¤í–‰
+INSERT INTO tbl#(acol,age) VALUES ('app2',23);	--ì‹¤í–‰
+INSERT INTO tbl#(acol,age) VALUES ('apps',99);	--ì˜¤ë¥˜
 
---tbl# Å×ÀÌºí¿¡ gender ÄÃ·³À» »ý¼ºÇÕ´Ï´Ù. check Á¦¾à Á¶°Ç : 'M', 'F'°ª¸¸ ÇãÀ¶
+--tbl# í…Œì´ë¸”ì— gender ì»¬ëŸ¼ì„ ìƒì„±í•©ë‹ˆë‹¤. check ì œì•½ ì¡°ê±´ : 'M', 'F'ê°’ë§Œ í—ˆìœµ
 ALTER TABLE tbl# ADD gender CHAR(1) CHECK (GENDER IN('M','F'));
-INSERT INTO tbl#(acol,gender) VALUES ('momo','F');	--½ÇÇà
-INSERT INTO tbl#(acol,gender) VALUES ('momos','X');	--¿À·ù
+INSERT INTO tbl#(acol,gender) VALUES ('momo','F');	--ì‹¤í–‰
+INSERT INTO tbl#(acol,gender) VALUES ('momos','X');	--ì˜¤ë¥˜
 
---SELECT ¿¡¼­ »ç¿ëÇÏ´Â ¿À¶óÅ¬ ÇÔ¼ö
---Á¶È¸ °á°ú¸¦ Á¶ÀÛÇÏ´Â ÇÔ¼ö : ¿¹½Ã age ÄÃ·³ °ªÀÌ NULLÀÏ ¶§ 0, gender 'M'ÀÌ¸é ³²¼º, 'F'ÀÌ¸é ¿©¼º
+--SELECT ì—ì„œ ì‚¬ìš©í•˜ëŠ” ì˜¤ë¼í´ í•¨ìˆ˜
+--ì¡°íšŒ ê²°ê³¼ë¥¼ ì¡°ìž‘í•˜ëŠ” í•¨ìˆ˜ : ì˜ˆì‹œ age ì»¬ëŸ¼ ê°’ì´ NULLì¼ ë•Œ 0, gender 'M'ì´ë©´ ë‚¨ì„±, 'F'ì´ë©´ ì—¬ì„±
 SELECT * FROM tbl#;
-SELECT acol,NVL(age,0) AS age2 , DECODE(gender,'M','³²¼º','F','¿©¼º')  gender2
+SELECT acol,NVL(age,0) AS age2 , DECODE(gender,'M','ë‚¨ì„±','F','ì—¬ì„±')  gender2
 FROM  tbl#;
---NVLÀº NULL VALUE , Å×ÀÌºí¸í/ÄÃ·³¸í º°ÄªÀº AS Å°¿öµå¸¦ ¾²°í »ý·«ÇÒ ¼ö ÀÖ½À´Ï´Ù.
+--NVLì€ NULL VALUE , í…Œì´ë¸”ëª…/ì»¬ëŸ¼ëª… ë³„ì¹­ì€ AS í‚¤ì›Œë“œë¥¼ ì“°ê³  ìƒëžµí•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.

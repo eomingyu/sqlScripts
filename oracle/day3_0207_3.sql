@@ -1,10 +1,10 @@
---³¯Â¥ Å¸ÀÔ : DATE, TIMESTAMP(timezone ¼³Á¤)
+--ë‚ ì§œ íƒ€ìž… : DATE, TIMESTAMP(timezone ì„¤ì •)
 CREATE TABLE table_date(
 	acol DATE,
 	bcol TIMESTAMP,
 	ccol TIMESTAMP DEFAULT SYSDATE
-	--°ªÀ» ÁöÁ¤ ¾ÈÇßÀ» ¶§ ±âº»°ª(default) : sysdate´Â ÇöÀç ³¯Â¥/½Ã°£(¼­¹ö)
+	--ê°’ì„ ì§€ì • ì•ˆí–ˆì„ ë•Œ ê¸°ë³¸ê°’(default) : sysdateëŠ” í˜„ìž¬ ë‚ ì§œ/ì‹œê°„(ì„œë²„)
 );
---³¯Â¥ Çü½ÄÀº ¹®ÀÚ¿­ Å¸ÀÔ°ú ÀÚµ¿ Ä³½ºÆÃÀÌ µË´Ï´Ù. ''¾È¿¡ yyyy-MM-dd hh:mm:ss ¹®ÀÚ¿­ Çü½ÄÀ¸·Î ÀÛ¼ºÇÕ´Ï´Ù.
+--ë‚ ì§œ í˜•ì‹ì€ ë¬¸ìžì—´ íƒ€ìž…ê³¼ ìžë™ ìºìŠ¤íŒ…ì´ ë©ë‹ˆë‹¤. ''ì•ˆì— yyyy-MM-dd hh:mm:ss ë¬¸ìžì—´ í˜•ì‹ìœ¼ë¡œ ìž‘ì„±í•©ë‹ˆë‹¤.
 INSERT INTO IDEV.TABLE_DATE (ACOL, BCOL)
 VALUES('2022-02-07', '2022-02-07');

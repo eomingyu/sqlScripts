@@ -1,33 +1,33 @@
---commit, rollback Å×½ºÆ®
--- ¤¤ µðºñ¹ö auto commit ¼³Á¤À» º¯°æÇØ¾ß ÇÕ´Ï´Ù.
--- ¤¤ 1) *ÇöÀç ÆíÁý±â¿¡ ´ëÇØ¼­¸¸ º¯°æ (µ¥ÀÌÅÍº£ÀÌ½º ¸Þ´º - Æ®·£Àè¼Ç ¸ðµå - manual commit)
--- ¤¤ 2) DB¿¬°á À¯ÇüÀ» Auto CommitÀ» ÇØÁ¦(À©µµ¿ì ¸Þ´º-¼³Á¤-¿¬°á-¿¬°áÀ¯Çü-auto commit ÇØÁ¦)
---½ÇÇà ¼ø¼­ 1¹ø
+--commit, rollback í…ŒìŠ¤íŠ¸
+-- ã„´ ë””ë¹„ë²„ auto commit ì„¤ì •ì„ ë³€ê²½í•´ì•¼ í•©ë‹ˆë‹¤.
+-- ã„´ 1) *í˜„ìž¬ íŽ¸ì§‘ê¸°ì— ëŒ€í•´ì„œë§Œ ë³€ê²½ (ë°ì´í„°ë² ì´ìŠ¤ ë©”ë‰´ - íŠ¸ëžœìž­ì…˜ ëª¨ë“œ - manual commit)
+-- ã„´ 2) DBì—°ê²° ìœ í˜•ì„ Auto Commitì„ í•´ì œ(ìœˆë„ìš° ë©”ë‰´-ì„¤ì •-ì—°ê²°-ì—°ê²°ìœ í˜•-auto commit í•´ì œ)
+--ì‹¤í–‰ ìˆœì„œ 1ë²ˆ
 SELECT * FROM  tbl#;
 DELETE FROM tbl# WHERE acol = 'momo';
-SELECT * FROM  tbl#;	--È®ÀÎ
+SELECT * FROM  tbl#;	--í™•ì¸
 
-ROLLBACK; --DELETE ¸í·ÉÀ» ¿ø·¡·Î µÇµ¹¸®±â (Ãë¼Ò)
-SELECT * FROM  tbl#;	--È®ÀÎ
+ROLLBACK; --DELETE ëª…ë ¹ì„ ì›ëž˜ë¡œ ë˜ëŒë¦¬ê¸° (ì·¨ì†Œ)
+SELECT * FROM  tbl#;	--í™•ì¸
 
---½ÇÇà ¼ø¼­ 2¹ø
+--ì‹¤í–‰ ìˆœì„œ 2ë²ˆ
 DELETE FROM tbl# WHERE acol='momo';
 SELECT * FROM  tbl#;
 COMMIT;
 SELECT * FROM  tbl#;
-ROLLBACK;			--À§¿¡¼­ COMMITÀ» ÇßÀ¸¹Ç·Î DELETE¸¦ Ãë¼ÒÇÒ ¼ö ¾ø½À´Ï´Ù.
+ROLLBACK;			--ìœ„ì—ì„œ COMMITì„ í–ˆìœ¼ë¯€ë¡œ DELETEë¥¼ ì·¨ì†Œí•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
 SELECT * FROM  tbl#;
 
---½ÇÇà ¼ø¼­ 3¹ø
+--ì‹¤í–‰ ìˆœì„œ 3ë²ˆ
 INSERT INTO tbl# (acol,age) VALUES ('nana',33);
 SELECT * FROM  tbl#;
 ROLLBACK ;
 SELECT * FROM  tbl#;
 
---½ÇÇà ¼ø¼­ 4¹ø
+--ì‹¤í–‰ ìˆœì„œ 4ë²ˆ
 INSERT INTO tbl# (acol,age) VALUES ('nana22',33);
-INSERT INTO tbl# (acol,age) VALUES ('ÂêÀ§',29);
-COMMIT ;				--ÃÖÁ¾ COMMIT ¶Ç´Â ROLLBACK ÇÑ ±× ÀÌÈÄÀÇ ¸í·ÉÀ» COMMIT 
+INSERT INTO tbl# (acol,age) VALUES ('ì¯”ìœ„',29);
+COMMIT ;				--ìµœì¢… COMMIT ë˜ëŠ” ROLLBACK í•œ ê·¸ ì´í›„ì˜ ëª…ë ¹ì„ COMMIT 
 UPDATE tbl# SET bcol='test' WHERE acol='nana22';
 DELETE FROM tbl# WHERE acol ='main';
-ROLLBACK ;				--ÃÖÁ¾ COMMIT ¶Ç´Â ROLLBACK ÇÑ ±× ÀÌÈÄÀÇ ¸í·ÉÀ» ROLLBACK 
+ROLLBACK ;				--ìµœì¢… COMMIT ë˜ëŠ” ROLLBACK í•œ ê·¸ ì´í›„ì˜ ëª…ë ¹ì„ ROLLBACK 

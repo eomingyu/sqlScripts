@@ -1,48 +1,48 @@
---DML : select, insert, update, delete гЭ╫д ╬к╬ф╨╦╠Б
+--DML : select, insert, update, delete М≤∙Л▀² Л∙▄Л∙└КЁ╢Й╦╟
 
--- ╣╔юлем а╤х╦ : select дц╥Ё╦М1, дц╥Ё╦М2, ... from евюл╨М╦М;
+-- К█╟Л²╢М└╟ Л║╟М ▄ : select Л╩╛К÷╪К╙┘1, Л╩╛К÷╪К╙┘2, ... from М┘▄Л²╢К╦■К╙┘;
 
 SELECT STUNO, STU_NAME, EMAIL, ADDRESS, ENTER_DATE, ETC 
 FROM IDEV.STUDENTS;
 
--- ╪╠ец╣г╢б дц╥Ёю╨ гй©Дгя ╟м╣И╥н гу╢о╢ы. 
--- (╦М╥и╬Н 1╟Ё ╫ггЮю╨ ctrl+enter , ©╘╥╞ ╦М╥и гя ╧Ь©║ ╫ггЮю╨ ╦М╥и ╣Е╥║╠в хд alt+x)
+-- Л└═М┐²К░≤К┼■ Л╩╛К÷╪Л²─ М∙└Л ■М∙° Й╡┐К⌠╓К║° М∙╘К▀┬К▀╓. 
+-- (К╙┘К═╧Л√╢ 1Й╟° Л▀╓М√┴Л²─ ctrl+enter , Л≈╛К÷╛ К╙┘К═╧ М∙° К╡┬Л≈░ Л▀╓М√┴Л²─ К╙┘К═╧ К⌠°К·≤Й╥╦ М⌡└ alt+x)
 SELECT STUNO, STU_NAME  FROM STUDENTS;
 
--- ╦П╣Г дц╥Ёю╩ ╪╠ецгр ╤╖╢б wildcard ╧╝юз *╥н ╢Кц╪
-SELECT * FROM STUDENTS s ; --s╢б ╨╟д╙(alias)
+-- К╙╗К⌠═ Л╩╛К÷╪Л²└ Л└═М┐²М∙═ К∙▄К┼■ wildcard К╛╦Л·░ *К║° К▄─Л╡╢
+SELECT * FROM STUDENTS s ; --sК┼■ КЁ└Л╧╜(alias)
 
--- ╣╔юлем а╤х╦©║ ╩Г©К╣г╢б а╤╟г цъ╟║╢б where ╣з©║ а╤╟г╫д юш╪╨
+-- К█╟Л²╢М└╟ Л║╟М ▄Л≈░ Л┌╛Л ╘К░≤К┼■ Л║╟Й╠╢ Л╤■Й╟─К┼■ where К▓╓Л≈░ Л║╟Й╠╢Л▀² Л·▒Л└╠
 SELECT * FROM STUDENTS WHERE STUNO =1;
-SELECT * FROM STUDENTS WHERE STU_NAME ='цжЁ╙Ё╙';
-SELECT * FROM STUDENTS WHERE ENTER_DATE  >'2020-06-01'; --dataе╦ютю╨ ╧╝юз©╜ '' ╠Бхё ╩Г©К
+SELECT * FROM STUDENTS WHERE STU_NAME ='Л╣°К┌≤К┌≤';
+SELECT * FROM STUDENTS WHERE ENTER_DATE  >'2020-06-01'; --dataМ┐─Л·┘Л²─ К╛╦Л·░Л≈╢ '' Й╦╟М≤╦ Л┌╛Л ╘
 
--- ╣╔юлем цъ╟║(╩Пют) : insert into евюл╨М╦М(дц╥Ё╦М1, дц╥Ё╦М2, ...) values(╟╙1, ╟╙2,...);
+-- К█╟Л²╢М└╟ Л╤■Й╟─(Л┌╫Л·┘) : insert into М┘▄Л²╢К╦■К╙┘(Л╩╛К÷╪К╙┘1, Л╩╛К÷╪К╙┘2, ...) values(Й╟▓1, Й╟▓2,...);
 INSERT INTO IDEV.STUDENTS
 (STUNO, STU_NAME, EMAIL, ADDRESS, ENTER_DATE, ETC)
 VALUES(0, '', '', '', '', '');
 
--- ╣╔юлем ╪Жа╓ : update евюл╨М╦М set дц╥Ё╦М1=╟╙1, дц╥Ё╦М2=╟╙2, ...;
+-- К█╟Л²╢М└╟ Л┬≤Л═∙ : update М┘▄Л²╢К╦■К╙┘ set Л╩╛К÷╪К╙┘1=Й╟▓1, Л╩╛К÷╪К╙┘2=Й╟▓2, ...;
 UPDATE IDEV.STUDENTS
 SET STUNO=0, STU_NAME='', EMAIL='', ADDRESS='', ENTER_DATE='', ETC='';
 
--- ╣╔юлем гЮ╢эю╖ ╩Ха╕ : delete from евюл╨М╦М where дц╥Ё╦М1=╟╙1 and дц╥е╦М2=╟╙2,...;
---									 where ╩Ха╕гр гЮ©║ ╢Кгя а╤╟г
+-- К█╟Л²╢М└╟ М√┴К▀╗Л°└ Л┌╜Л═° : delete from М┘▄Л²╢К╦■К╙┘ where Л╩╛К÷╪К╙┘1=Й╟▓1 and Л╩╛К═╢К╙┘2=Й╟▓2,...;
+--									 where Л┌╜Л═°М∙═ М√┴Л≈░ К▄─М∙° Л║╟Й╠╢
 DELETE FROM IDEV.STUDENTS
 WHERE STUNO=0 AND STU_NAME='' AND EMAIL='' AND ADDRESS='' AND ENTER_DATE='' AND ETC='';
 
--- null ╟╙ ╣╔юлем╦╕ а╤х╦го╢б а╤╟г╫д
+-- null Й╟▓ К█╟Л²╢М└╟К╔╪ Л║╟М ▄М∙≤К┼■ Л║╟Й╠╢Л▀²
 SELECT STUNO, STU_NAME, ENTER_DATE, ETC FROM STUDENTS WHERE ETC IS NULL;
 SELECT STUNO, STU_NAME, ENTER_DATE, ETC FROM STUDENTS WHERE ETC IS NOT NULL;
 
--- ╣╔юлем а╤х╦гр ╤╖ дц╥Ё╦М ╢К╫е©║ гт╪Ж(count,sum,avg,max,min)╦╕ ╩Г©К
+-- К█╟Л²╢М└╟ Л║╟М ▄М∙═ К∙▄ Л╩╛К÷╪К╙┘ К▄─Л▀═Л≈░ М∙╗Л┬≤(count,sum,avg,max,min)К╔╪ Л┌╛Л ╘
 SELECT COUNT(*) FROM STUDENTS ;
-SELECT MAX(STUNO) FROM STUDENTS s;  --s╢б ╨╟д╙(alias)
+SELECT MAX(STUNO) FROM STUDENTS s;  --sК┼■ КЁ└Л╧╜(alias)
 SELECT MIN(STUNO) FROM STUDENTS s;  
 
-SELECT MAX(STU_NAME) FROM STUDENTS s ; --╧╝юз©╜ е╦ютюг дц╥Ёю╨ ╩ГюЭ╫д ╨Я╠Ёго©╘ ╟А╟З╟╙ ╠╦гт.
+SELECT MAX(STU_NAME) FROM STUDENTS s ; --К╛╦Л·░Л≈╢ М┐─Л·┘Л²≤ Л╩╛К÷╪Л²─ Л┌╛Л═└Л▀² К╧└Й╣░М∙≤Л≈╛ Й╡╟ЙЁ╪Й╟▓ Й╣╛М∙╗.
 SELECT MIN(STU_NAME) FROM STUDENTS s ;
 
---╣╔юлем а╤х╦ а╤╟г╫д©║ IN ╤г╢б NOT IN : or а╤╟г╫д ╢К╫е©║ ╩Г©Кгу╢о╢ы.
+--К█╟Л²╢М└╟ Л║╟М ▄ Л║╟Й╠╢Л▀²Л≈░ IN К≤░К┼■ NOT IN : or Л║╟Й╠╢Л▀² К▄─Л▀═Л≈░ Л┌╛Л ╘М∙╘К▀┬К▀╓.
 SELECT * FROM STUDENTS s WHERE STUNO =1 OR STUNO =3;
-SELECT * FROM STUDENTS s WHERE STUNO IN (1,3); 		--╣©юогя дц╥Ё©║ ╢Кгь ©╘╥╞╟Ё ╟╙ю╩ OR а╤╟г╟к╩Г
+SELECT * FROM STUDENTS s WHERE STUNO IN (1,3); 		--К▐≥Л²╪М∙° Л╩╛К÷╪Л≈░ К▄─М∙╢ Л≈╛К÷╛Й╟° Й╟▓Л²└ OR Л║╟Й╠╢Й╡─Л┌╛

@@ -1,94 +1,94 @@
---UPDATE Çü½Ä
---UPDATE Å×ÀÌºí¸í
---SET ¼öÁ¤ÇÒ ÄÃ·³=°ª À» ,·Î ±¸ºÐÇØ¼­ ³ª¿­
---WHERE ¼öÁ¤ÇÒ Çà¿¡ ´ëÇÑ Á¶°Ç½Ä;
+--UPDATE í˜•ì‹
+--UPDATE í…Œì´ë¸”ëª…
+--SET ìˆ˜ì •í•  ì»¬ëŸ¼=ê°’ ì„ ,ë¡œ êµ¬ë¶„í•´ì„œ ë‚˜ì—´
+--WHERE ìˆ˜ì •í•  í–‰ì— ëŒ€í•œ ì¡°ê±´ì‹;
 
 SELECT * FROM "TBL_CUSTOM#" tc ;
 
---** UPDATE ¿Í DELETE´Â WHERE Á¶°Ç½ÄÀ» »ç¿ëÇÏ´Â °ÍÀÌ ¾ÈÀüÇÕ´Ï´Ù.
+--** UPDATE ì™€ DELETEëŠ” WHERE ì¡°ê±´ì‹ì„ ì‚¬ìš©í•˜ëŠ” ê²ƒì´ ì•ˆì „í•©ë‹ˆë‹¤.
 UPDATE "TBL_CUSTOM#" 
 SET age=39 
 WHERE CUSTOM_ID = 'twice';		
---±âº»Å° ÄÃ·³ »ç¿ë Á¶°Ç½ÄÀº 1°³ Çà¸¸ ¼öÁ¤µË´Ï´Ù.
+--ê¸°ë³¸í‚¤ ì»¬ëŸ¼ ì‚¬ìš© ì¡°ê±´ì‹ì€ 1ê°œ í–‰ë§Œ ìˆ˜ì •ë©ë‹ˆë‹¤.
 
 UPDATE "TBL_CUSTOM#" 
 SET age=23, email = 'nana@korea.kr'
 WHERE CUSTOM_ID = 'wonder';
 
---custom_id : wonder¿Í twice¿¡ ´ëÇØ reg_date ¸¦ 2022³â 2¿ù 5ÀÏ·Î º¯°æ
+--custom_id : wonderì™€ twiceì— ëŒ€í•´ reg_date ë¥¼ 2022ë…„ 2ì›” 5ì¼ë¡œ ë³€ê²½
 UPDATE "TBL_CUSTOM#" 
 SET reg_date = '2022-02-05'
-WHERE CUSTOM_ID IN('wonder','twice');	--IN ¿¬»êÀÚ´Â OR ´ëÃ¼
+WHERE CUSTOM_ID IN('wonder','twice');	--IN ì—°ì‚°ìžëŠ” OR ëŒ€ì²´
 
 
---»ùÇÃ µ¥ÀÌÅÍ Ãß°¡
+--ìƒ˜í”Œ ë°ì´í„° ì¶”ê°€
 INSERT INTO "TBL_PRODUCT#" (pcode,CATEGORY,PNAME,PRICE)
-VALUES('GAL0112','A1','°¶·°½Ã20',910000);
+VALUES('GAL0112','A1','ê°¤ëŸ­ì‹œ20',910000);
 
---DELETE Çü½Ä
---DELETE FROM Å×ÀÌºí¸í WHERE Á¶°Ç½Ä;
-DELETE FROM "TBL_PRODUCT#" tp WHERE pcode = 'GAL0112';	-- ½ÇÇà : buy#¿¡¼­ ÂüÁ¶ÇÏÁö ¾Ê´Â °ª
-DELETE FROM "TBL_PRODUCT#" tp WHERE pcode = 'IPAD011';	-- ¿À·ù : ¹«°á¼º À§¹Ý
+--DELETE í˜•ì‹
+--DELETE FROM í…Œì´ë¸”ëª… WHERE ì¡°ê±´ì‹;
+DELETE FROM "TBL_PRODUCT#" tp WHERE pcode = 'GAL0112';	-- ì‹¤í–‰ : buy#ì—ì„œ ì°¸ì¡°í•˜ì§€ ì•ŠëŠ” ê°’
+DELETE FROM "TBL_PRODUCT#" tp WHERE pcode = 'IPAD011';	-- ì˜¤ë¥˜ : ë¬´ê²°ì„± ìœ„ë°˜
 
-UPDATE "TBL_PRODUCT#" SET pname = '¾ÆÀÌÆÐµåÇÁ·Î'	--½ÇÇà : pnameÀº ÂüÁ¶ÇÏÁö ¾Ê´Â °ª
+UPDATE "TBL_PRODUCT#" SET pname = 'ì•„ì´íŒ¨ë“œí”„ë¡œ'	--ì‹¤í–‰ : pnameì€ ì°¸ì¡°í•˜ì§€ ì•ŠëŠ” ê°’
 WHERE pcode = 'IPAD011';
 
-UPDATE "TBL_PRODUCT#" SET pcode = 'IPAD011X'	--¿À·ù : pcode´Â buy#¿¡¼­ ÂüÁ¶ÇÏ´Â °ª
-WHERE pcode = 'IPAD011';						--´Ù¸¥ Å×ÀÌºí¿¡¼­ ÂüÁ¶ ÁßÀÎ °ªÀº º¯°æ/»èÁ¦ÇÒ ¼ö ¾ø´Ù.
+UPDATE "TBL_PRODUCT#" SET pcode = 'IPAD011X'	--ì˜¤ë¥˜ : pcodeëŠ” buy#ì—ì„œ ì°¸ì¡°í•˜ëŠ” ê°’
+WHERE pcode = 'IPAD011';						--ë‹¤ë¥¸ í…Œì´ë¸”ì—ì„œ ì°¸ì¡° ì¤‘ì¸ ê°’ì€ ë³€ê²½/ì‚­ì œí•  ìˆ˜ ì—†ë‹¤.
 
 SELECT * FROM "TBL_CUSTOM#" tc ;
 SELECT * FROM "TBL_PRODUCT#" tp ;
 SELECT * FROM "TBL_BUY#" tb ;
 
---on DELETE, on UPDATE(¿À¶óÅ¬Àº ¾ÈµÊ) ¼Ó¼º º¯°æÇÏ¿© ¿Ü·¡Å° ´Ù½Ã »ý¼ºÇÕ´Ï´Ù.
+--on DELETE, on UPDATE(ì˜¤ë¼í´ì€ ì•ˆë¨) ì†ì„± ë³€ê²½í•˜ì—¬ ì™¸ëž˜í‚¤ ë‹¤ì‹œ ìƒì„±í•©ë‹ˆë‹¤.
 ALTER TABLE IDEV."TBL_BUY#" 
 		DROP CONSTRAINT "FK_TBL_PRODUCT#";
 ALTER TABLE IDEV."TBL_BUY#" 
 		ADD CONSTRAINT "FK_TBL_PRODUCT#" 
 		FOREIGN KEY (PCODE) REFERENCES IDEV."TBL_PRODUCT#"(PCODE) 
 		ON DELETE CASCADE; 
-		--¹«°á¼ºÀ» À§ÇØ¼­ ÂüÁ¶ÇÏ´Â °ª »èÁ¦½Ã ÂüÁ¶ÇÏ´Â Çàµµ ¿¬´Þ¾Æ¼­ »èÁ¦
---ALTER TABLE Çü½Ä : DROP , ADD, MODIFY(Á¦¾àÁ¶°ÇÀº ¸øÇÕ´Ï´Ù.)
+		--ë¬´ê²°ì„±ì„ ìœ„í•´ì„œ ì°¸ì¡°í•˜ëŠ” ê°’ ì‚­ì œì‹œ ì°¸ì¡°í•˜ëŠ” í–‰ë„ ì—°ë‹¬ì•„ì„œ ì‚­ì œ
+--ALTER TABLE í˜•ì‹ : DROP , ADD, MODIFY(ì œì•½ì¡°ê±´ì€ ëª»í•©ë‹ˆë‹¤.)
 
---SELECT ÀÇ JOIN : µÑ ÀÌ»óÀÇ Å×ÀÌºí(ÁÖ·Î ÂüÁ¶°ü°èÀÇ Å×ÀÌºí)À» ¿¬°áÇÏ¿© µ¥ÀÌÅÍ¸¦ Á¶È¸ÇÏ´Â ¸í·É
---				µÑ ÀÌ»óÀÇ Å×ÀÌºíÀº °øÅëµÈ ÄÃ·³À» °®°í ÀÌ ÄÃ·³À» ÀÌ¿ëÇÏ¿© JOIN ÇÕ´Ï´Ù.
---Çü½Ä: SELECT ~ FROM Å×ÀÌºí1 a, Å×ÀÌºí2 b,... WHERE a.°øÅëÄÃ·³1=b.°øÅëÄÃ·³1;
+--SELECT ì˜ JOIN : ë‘˜ ì´ìƒì˜ í…Œì´ë¸”(ì£¼ë¡œ ì°¸ì¡°ê´€ê³„ì˜ í…Œì´ë¸”)ì„ ì—°ê²°í•˜ì—¬ ë°ì´í„°ë¥¼ ì¡°íšŒí•˜ëŠ” ëª…ë ¹
+--				ë‘˜ ì´ìƒì˜ í…Œì´ë¸”ì€ ê³µí†µëœ ì»¬ëŸ¼ì„ ê°–ê³  ì´ ì»¬ëŸ¼ì„ ì´ìš©í•˜ì—¬ JOIN í•©ë‹ˆë‹¤.
+--í˜•ì‹: SELECT ~ FROM í…Œì´ë¸”1 a, í…Œì´ë¸”2 b,... WHERE a.ê³µí†µì»¬ëŸ¼1=b.ê³µí†µì»¬ëŸ¼1;
 	
 SELECT * FROM "TBL_PRODUCT#" tp,"TBL_BUY#" tb 
-		 WHERE tp.pcode = tb.pcode;			--µ¿µî Á¶ÀÎ.
+		 WHERE tp.pcode = tb.pcode;			--ë™ë“± ì¡°ì¸.
 		 
---JOIN À» ¾²´Â ¸í·É¹® Çü½Ä(Ç¥ÁØ)
+--JOIN ì„ ì“°ëŠ” ëª…ë ¹ë¬¸ í˜•ì‹(í‘œì¤€)
 SELECT * FROM "TBL_PRODUCT#" tp 
 		 JOIN  "TBL_BUY#" tb 
 		 ON tp.pcode = tb.pcode;
 		 
---mina012°¡ ±¸¸ÅÇÑ »óÇ°¸íÀº ¹«¾ùÀÎ°¡?
+--mina012ê°€ êµ¬ë§¤í•œ ìƒí’ˆëª…ì€ ë¬´ì—‡ì¸ê°€?
 SELECT tp.pname FROM "TBL_PRODUCT#" tp,"TBL_BUY#" tb 
 			WHERE tp.pcode=tb.pcode AND CUSTOM_ID ='mina012';
 SELECT tp.pname FROM "TBL_PRODUCT#" tp 
 			JOIN "TBL_BUY#" tb 
 			ON tp.pcode = tb.pcode 
 			WHERE CUSTOM_ID ='mina012';
---mina012°¡ ±¸¸ÅÇÑ »óÇ°¸í°ú °¡°Ý Á¶È¸ÇÏ±â
-SELECT tp.pname, tp.price FROM "TBL_PRODUCT#" tp,"TBL_BUY#" tb  --tp.À¸·Î ¼Ò¼ÓÀ» ¸í½Ã
+--mina012ê°€ êµ¬ë§¤í•œ ìƒí’ˆëª…ê³¼ ê°€ê²© ì¡°íšŒí•˜ê¸°
+SELECT tp.pname, tp.price FROM "TBL_PRODUCT#" tp,"TBL_BUY#" tb  --tp.ìœ¼ë¡œ ì†Œì†ì„ ëª…ì‹œ
 			WHERE tp.pcode=tb.pcode AND CUSTOM_ID ='mina012';
 SELECT tp.pname, tp.price FROM "TBL_PRODUCT#" tp 
 			JOIN "TBL_BUY#" tb 
 			ON tp.pcode = tb.pcode 
 			WHERE CUSTOM_ID ='mina012';		
---JOINÇÒ ¶§, °øÅëµÈ ÄÃ·³Àº Å×ÀÌºí ¸íÀ» ²À ÁöÁ¤ÇØ¾ß ÇÕ´Ï´Ù.		
-SELECT tp.pcode, tp.price FROM "TBL_PRODUCT#" tp,"TBL_BUY#" tb  --²À pcode¿¡ ¼Ò¼Ó ¸í½Ã
+--JOINí•  ë•Œ, ê³µí†µëœ ì»¬ëŸ¼ì€ í…Œì´ë¸” ëª…ì„ ê¼­ ì§€ì •í•´ì•¼ í•©ë‹ˆë‹¤.		
+SELECT tp.pcode, tp.price FROM "TBL_PRODUCT#" tp,"TBL_BUY#" tb  --ê¼­ pcodeì— ì†Œì† ëª…ì‹œ
 			WHERE tp.pcode=tb.pcode AND CUSTOM_ID ='mina012';
 
--- ¿ÜºÎÁ¶ÀÎ Çü½Ä 2°¡Áö
+-- ì™¸ë¶€ì¡°ì¸ í˜•ì‹ 2ê°€ì§€
 SELECT * FROM "TBL_PRODUCT#" tp,"TBL_BUY#" tb 
-		 WHERE tp.pcode = tb.pcode(+);			--¿ÜºÎ Á¶ÀÎ.
+		 WHERE tp.pcode = tb.pcode(+);			--ì™¸ë¶€ ì¡°ì¸.
 		 
---JOIN À» ¾²´Â ¸í·É¹® Çü½Ä2(Ç¥ÁØ)
-SELECT * FROM "TBL_PRODUCT#" tp 			--pcode°¡ ÀÖ´Â µ¥ÀÌÅÍ º¸¿©ÁÖ±â
-		 LEFT OUTER JOIN  "TBL_BUY#" tb 	--±âÁØÀÌ µÇ´Â Å×ÀÌºíÀº ¿ÞÂÊÀÇ product#
+--JOIN ì„ ì“°ëŠ” ëª…ë ¹ë¬¸ í˜•ì‹2(í‘œì¤€)
+SELECT * FROM "TBL_PRODUCT#" tp 			--pcodeê°€ ìžˆëŠ” ë°ì´í„° ë³´ì—¬ì£¼ê¸°
+		 LEFT OUTER JOIN  "TBL_BUY#" tb 	--ê¸°ì¤€ì´ ë˜ëŠ” í…Œì´ë¸”ì€ ì™¼ìª½ì˜ product#
 		 ON tp.pcode = tb.pcode;		
 		
 		
---µ¥ÀÌÅÍ Å×½ºÆ® ¶Ç´Â µ¥ÀÌÅÍ °ü¸®¸¦ À§ÇØ ¸ðµç µ¥ÀÌÅÍ »èÁ¦ÇÏ±â
+--ë°ì´í„° í…ŒìŠ¤íŠ¸ ë˜ëŠ” ë°ì´í„° ê´€ë¦¬ë¥¼ ìœ„í•´ ëª¨ë“  ë°ì´í„° ì‚­ì œí•˜ê¸°
 TRUNCATE TABLE "TBL_BUY#" ;

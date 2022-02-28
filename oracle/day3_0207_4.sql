@@ -1,60 +1,60 @@
---¿¹½Ã : ¼îÇÎ¸ô(°í°´ÀÌ »óÇ°À» ±¸¸ÅÇÕ´Ï´Ù.)
---°í°´ Å×ÀÌºí
+--ì˜ˆì‹œ : ì‡¼í•‘ëª°(ê³ ê°ì´ ìƒí’ˆì„ êµ¬ë§¤í•©ë‹ˆë‹¤.)
+--ê³ ê° í…Œì´ë¸”
 CREATE TABLE tbl_custom(
-	custom_id VARCHAR2(20),	--È¸¿øID	--¿µ¹®/¼ýÀÚ/±âÈ£
-	name NVARCHAR2(20),		--ÀÌ¸§ 	--ÇÑ±Û µî ´Ù±¹¾î ¹®ÀÚ °¹¼ö
-	email VARCHAR2(20),		--ÀÌ¸ÞÀÏ
-	age NUMBER(3),			--³ªÀÌ
-	reg_date TIMESTAMP DEFAULT SYSDATE	--°¡ÀÔ ÀÏÀÚ
+	custom_id VARCHAR2(20),	--íšŒì›ID	--ì˜ë¬¸/ìˆ«ìž/ê¸°í˜¸
+	name NVARCHAR2(20),		--ì´ë¦„ 	--í•œê¸€ ë“± ë‹¤êµ­ì–´ ë¬¸ìž ê°¯ìˆ˜
+	email VARCHAR2(20),		--ì´ë©”ì¼
+	age NUMBER(3),			--ë‚˜ì´
+	reg_date TIMESTAMP DEFAULT SYSDATE	--ê°€ìž… ì¼ìž
 );
 
---»óÇ° Å×ÀÌºí : »óÇ°ÄÚµå(°¡º¯ ±æÀÌ 20ÀÚ¸®), Ä«Å×°í¸®(°íÁ¤ ±æÀÌ 2ÀÚ¸®)
---								A1:ÀüÀÚÁ¦Ç°, B1:½ÄÇ°
+--ìƒí’ˆ í…Œì´ë¸” : ìƒí’ˆì½”ë“œ(ê°€ë³€ ê¸¸ì´ 20ìžë¦¬), ì¹´í…Œê³ ë¦¬(ê³ ì • ê¸¸ì´ 2ìžë¦¬)
+--								A1:ì „ìžì œí’ˆ, B1:ì‹í’ˆ
 CREATE TABLE tbl_product(
-	pcode VARCHAR2(20),		--»óÇ°ÄÚµå
-	category CHAR(2),		--Ä«Å×°í¸®
-	pname NVARCHAR2(20),	--»óÇ°¸í
-	price NUMBER(9)			--°¡°Ý
+	pcode VARCHAR2(20),		--ìƒí’ˆì½”ë“œ
+	category CHAR(2),		--ì¹´í…Œê³ ë¦¬
+	pname NVARCHAR2(20),	--ìƒí’ˆëª…
+	price NUMBER(9)			--ê°€ê²©
 );
 
---±¸¸Å Å×ÀÌºí : ¾î´À °í°´ÀÌ ¹«½¼ »óÇ°À» ±¸ÀÔÇÏ´Â°¡?
+--êµ¬ë§¤ í…Œì´ë¸” : ì–´ëŠ ê³ ê°ì´ ë¬´ìŠ¨ ìƒí’ˆì„ êµ¬ìž…í•˜ëŠ”ê°€?
 CREATE TABLE tbl_buy(
-	custom_id VARCHAR2(20),	--±¸¸Å È¸¿øID
-	pcode VARCHAR2(20),		--±¸¸Å »óÇ°ÄÚµå
-	quantity NUMBER(5),		--¼ö·®
-	buy_date TIMESTAMP		--±¸¸Å ÀÏÀÚ
+	custom_id VARCHAR2(20),	--êµ¬ë§¤ íšŒì›ID
+	pcode VARCHAR2(20),		--êµ¬ë§¤ ìƒí’ˆì½”ë“œ
+	quantity NUMBER(5),		--ìˆ˜ëŸ‰
+	buy_date TIMESTAMP		--êµ¬ë§¤ ì¼ìž
 );
 
--- µ¥ÀÌÅÍÀÇ Ãß°¡ : INSERT
+-- ë°ì´í„°ì˜ ì¶”ê°€ : INSERT
 INSERT INTO IDEV.TBL_CUSTOM (CUSTOM_ID, NAME, EMAIL, AGE, REG_DATE)
-VALUES('mina012', '±è¹Ì³ª', 'kimm@gmail.com', 20, SYSDATE);
+VALUES('mina012', 'ê¹€ë¯¸ë‚˜', 'kimm@gmail.com', 20, SYSDATE);
 INSERT INTO IDEV.TBL_CUSTOM (CUSTOM_ID, NAME, EMAIL, AGE, REG_DATE)
-VALUES('hongGD', 'È«±æµ¿', 'gil@koera.com', 32, SYSDATE);
+VALUES('hongGD', 'í™ê¸¸ë™', 'gil@koera.com', 32, SYSDATE);
 INSERT INTO IDEV.TBL_CUSTOM (CUSTOM_ID, NAME, EMAIL, AGE, REG_DATE)
-VALUES('twice', '¹Ú¸ð¸ð', 'momo@daum.net', 29, SYSDATE);
+VALUES('twice', 'ë°•ëª¨ëª¨', 'momo@daum.net', 29, SYSDATE);
 INSERT INTO IDEV.TBL_CUSTOM (CUSTOM_ID, NAME, EMAIL, AGE, REG_DATE)
-VALUES('wonder', 'ÀÌ³ª³ª', 'lee@naver.com', 40, SYSDATE);
+VALUES('wonder', 'ì´ë‚˜ë‚˜', 'lee@naver.com', 40, SYSDATE);
 
 INSERT INTO IDEV.TBL_PRODUCT (PCODE, CATEGORY, PNAME, PRICE)
-VALUES('IPAD011', 'A1', '¾ÆÀÌÆÐµå10', 880000);
+VALUES('IPAD011', 'A1', 'ì•„ì´íŒ¨ë“œ10', 880000);
 INSERT INTO IDEV.TBL_PRODUCT (PCODE, CATEGORY, PNAME, PRICE)
-VALUES('DOWON123a', 'B1', 'µ¿¿øÂüÄ¡¼±¹°¼¼Æ®', 54000);
+VALUES('DOWON123a', 'B1', 'ë™ì›ì°¸ì¹˜ì„ ë¬¼ì„¸íŠ¸', 54000);
 INSERT INTO IDEV.TBL_PRODUCT (PCODE, CATEGORY, PNAME, PRICE)
-VALUES('dk_143', 'A2', '¸ð¼Çµ¥½ºÅ©', 234500);
+VALUES('dk_143', 'A2', 'ëª¨ì…˜ë°ìŠ¤í¬', 234500);
 
---±è¹Ì³ª°¡ ¾ÆÀÌÆÐµå 1°³¸¦ ¾îÁ¦ ±¸¸Å
+--ê¹€ë¯¸ë‚˜ê°€ ì•„ì´íŒ¨ë“œ 1ê°œë¥¼ ì–´ì œ êµ¬ë§¤
 INSERT INTO IDEV.TBL_BUY (CUSTOM_ID, PCODE, QUANTITY, BUY_DATE)
 VALUES('mina012', 'IPAD011', 1, '2022-02-06');
---È«±æµ¿ÀÌ ¾ÆÀÌÆÐµå 2°³¸¦ ¿À´Ã ±¸¸Å
+--í™ê¸¸ë™ì´ ì•„ì´íŒ¨ë“œ 2ê°œë¥¼ ì˜¤ëŠ˜ êµ¬ë§¤
 INSERT INTO IDEV.TBL_BUY (CUSTOM_ID, PCODE, QUANTITY, BUY_DATE)
 VALUES('hongGD', 'IPAD011', 2, '2022-02-07');
---ÀÌ³ª³ª°¡ ÂüÄ¡¼±¹°¼¼Æ® 3°³¸¦ ¾îÁ¦ ±¸¸Å
+--ì´ë‚˜ë‚˜ê°€ ì°¸ì¹˜ì„ ë¬¼ì„¸íŠ¸ 3ê°œë¥¼ ì–´ì œ êµ¬ë§¤
 INSERT INTO IDEV.TBL_BUY (CUSTOM_ID, PCODE, QUANTITY, BUY_DATE)
 VALUES('wonder', 'DOWON123a', 3, '2022-02-06');
---±è¹Ì³ª°¡ ¸ð¼Çµ¥½ºÅ© 1°³¸¦ ¿À´Ã ±¸¸Å
+--ê¹€ë¯¸ë‚˜ê°€ ëª¨ì…˜ë°ìŠ¤í¬ 1ê°œë¥¼ ì˜¤ëŠ˜ êµ¬ë§¤
 INSERT INTO IDEV.TBL_BUY (CUSTOM_ID, PCODE, QUANTITY, BUY_DATE)
 VALUES('mina012', 'dk_143', 1, '2022-02-07');
---¹Ú¸ð¸ð°¡ ÂüÄ¡¼±¹°¼¼Æ® 2°³¸¦ ¿À´Ã ±¸¸Å
+--ë°•ëª¨ëª¨ê°€ ì°¸ì¹˜ì„ ë¬¼ì„¸íŠ¸ 2ê°œë¥¼ ì˜¤ëŠ˜ êµ¬ë§¤
 INSERT INTO IDEV.TBL_BUY (CUSTOM_ID, PCODE, QUANTITY, BUY_DATE)
 VALUES('twice', 'DOWON123a', 2, '2022-02-07');
 
@@ -63,6 +63,6 @@ SELECT * FROM TBL_CUSTOM tc  ;
 SELECT * FROM TBL_PRODUCT tp  ;
 SELECT * FROM TBL_BUY tb ;
 
---Áß¿ä1 : custom Å×ÀÌºíÀÇ Çà µ¥ÀÌÅÍ¸¦ ±¸ºÐÇÑ custom_id ,pcode´Â Áßº¹µÇ¸é ¾ÈµË´Ï´Ù.
---Áß¿ä2 : product Å×ÀÌºíÀÇ price , quantity µîÀÇ ÄÃ·³Àº ²À ÇÊ¼ö µ¥ÀÌÅÍ·Î ÀúÀåµÇ¾î¾ß ÇÕ´Ï´Ù.
---Áß¿ä3 : °í°´°ú »óÇ°Å×ÀÌºí¿¡ ¾ø´Â custom_id , pcode ÄÃ·³ °ªÀ» »ç¿ëÇÏ¸é ºÎÁ¤È®ÇÑ µ¥ÀÌÅÍÀÔ´Ï´Ù.
+--ì¤‘ìš”1 : custom í…Œì´ë¸”ì˜ í–‰ ë°ì´í„°ë¥¼ êµ¬ë¶„í•œ custom_id ,pcodeëŠ” ì¤‘ë³µë˜ë©´ ì•ˆë©ë‹ˆë‹¤.
+--ì¤‘ìš”2 : product í…Œì´ë¸”ì˜ price , quantity ë“±ì˜ ì»¬ëŸ¼ì€ ê¼­ í•„ìˆ˜ ë°ì´í„°ë¡œ ì €ìž¥ë˜ì–´ì•¼ í•©ë‹ˆë‹¤.
+--ì¤‘ìš”3 : ê³ ê°ê³¼ ìƒí’ˆí…Œì´ë¸”ì— ì—†ëŠ” custom_id , pcode ì»¬ëŸ¼ ê°’ì„ ì‚¬ìš©í•˜ë©´ ë¶€ì •í™•í•œ ë°ì´í„°ìž…ë‹ˆë‹¤.
