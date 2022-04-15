@@ -56,7 +56,7 @@ SELECT rownum AS R, T.* FROM
 --댓글 있는 게시판의 댓글 테이블
 CREATE TABLE comments (
 	idx number(3) NOT NULL,		--댓글 테이블의 기본키
-	"ref" number(5) NOT NULL,	--freeboard 테이블의 idx
+	mref number(5) NOT NULL,	--freeboard 테이블의 idx
 	name varchar2(30) NOT NULL,
 	content varchar2(2000) NOT NULL,
 	wdate DATE DEFAULT sysdate,
@@ -67,12 +67,12 @@ CREATE TABLE comments (
 
 CREATE SEQUENCE cmt_idx_seq;
 
-INSERT INTO comments(idx,"ref",name,content)
+INSERT INTO comments(idx,mref,name,content)
 VALUES (cmt_idx_seq.nextval,3,'이하니','확인했습니다.!!');
 
 --freeboard 테이블의 댓글 개수
 --1) 댓글 작성될 때마다 +1 	2) 댓글 개수를 구하는 SELECT 
-SELECT count(*) FROM comments WHERE "ref"=3;	--freeboard 3번 글의 댓글 개수
-SELECT count(*) FROM comments WHERE "ref"=1;	--freeboard 1번 글의 댓글 개수
+SELECT count(*) FROM comments WHERE mref=3;	--freeboard 3번 글의 댓글 개수
+SELECT count(*) FROM comments WHERE mref"=1;	--freeboard 1번 글의 댓글 개수
 
 --1) 로 구현할 예정 : insert into comments > update freeboard set commentCount=commentCount+1
