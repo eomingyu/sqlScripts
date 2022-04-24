@@ -70,9 +70,10 @@ CREATE SEQUENCE cmt_idx_seq;
 INSERT INTO comments(idx,mref,name,content)
 VALUES (cmt_idx_seq.nextval,3,'이하니','확인했습니다.!!');
 
+SELECT * FROM comments;
 --freeboard 테이블의 댓글 개수
 --1) 댓글 작성될 때마다 +1 	2) 댓글 개수를 구하는 SELECT 
 SELECT count(*) FROM comments WHERE mref=3;	--freeboard 3번 글의 댓글 개수
-SELECT count(*) FROM comments WHERE mref"=1;	--freeboard 1번 글의 댓글 개수
+SELECT count(*) FROM comments WHERE mref=1;	--freeboard 1번 글의 댓글 개수
 
 --1) 로 구현할 예정 : insert into comments > update freeboard set commentCount=commentCount+1
