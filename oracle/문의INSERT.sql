@@ -1,0 +1,58 @@
+INSERT INTO IDEV.QUESTION
+(QUESTION_IDX, ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_DATE)
+VALUES(question_idx_seq.nextval , 'kka0713', '환불 처리 가능할까요?', '환불관련', '2022-05-21');
+INSERT INTO IDEV.QUESTION
+(QUESTION_IDX, ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_DATE)
+VALUES(question_idx_seq.nextval , 'leedk21', '로그인 후 예매 확인 시, 예매리스트가 안보여요', '로그인 후 예매 확인 시, 예매리스트가 안보여요', '2022-05-21');
+INSERT INTO IDEV.QUESTION
+(QUESTION_IDX, ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_DATE)
+VALUES(question_idx_seq.nextval , 'jiyoung2111', '마감 시간 이후 취소 가능한가요?', '예매 취소 관련', '2022-05-21');
+INSERT INTO IDEV.QUESTION
+(QUESTION_IDX, ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_DATE)
+VALUES(question_idx_seq.nextval , 'jiyoung2111', '주차 공간이 있나요?', '주차관련', '2022-05-21');
+INSERT INTO IDEV.QUESTION
+(QUESTION_IDX, ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_DATE)
+VALUES(question_idx_seq.nextval , 'kka0713', '예매 취소하고 싶습니다', '취소관련', '2022-05-21');
+INSERT INTO IDEV.QUESTION
+(QUESTION_IDX, ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_DATE)
+VALUES(question_idx_seq.nextval , 'rhdek21', '환불하고 싶어요', '환불관련', '2022-05-22');
+INSERT INTO IDEV.QUESTION
+(QUESTION_IDX, ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_DATE)
+VALUES(question_idx_seq.nextval , 'ray01', '쿠폰사용 관련', '로그인 후 예매 확인 시, 예매리스트가 안보여요', '2022-05-22');
+INSERT INTO IDEV.QUESTION
+(QUESTION_IDX, ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_DATE)
+VALUES(question_idx_seq.nextval , 'fbb41', '음식물 반입 가능한가요?', '공연 녹화 관련', '2022-05-22');
+INSERT INTO IDEV.QUESTION
+(QUESTION_IDX, ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_DATE)
+VALUES(question_idx_seq.nextval , 'jiyoung2111', '좌석 나면 알림문자 가능한가요?', '주차관련', sysdate);
+INSERT INTO IDEV.QUESTION
+(QUESTION_IDX, ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_DATE)
+VALUES(question_idx_seq.nextval , 'ray01', '예매 취소할래요', '취소관련', sysdate);
+INSERT INTO IDEV.QUESTION
+(QUESTION_IDX, ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_DATE)
+VALUES(question_idx_seq.nextval , 'aaaa4', '예매 취소', '취소', sysdate);
+INSERT INTO IDEV.QUESTION
+(QUESTION_IDX, ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_DATE)
+VALUES(question_idx_seq.nextval , 'aaaa3', '환불', '환불관련', sysdate);
+INSERT INTO IDEV.QUESTION
+(QUESTION_IDX, ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_DATE)
+VALUES(question_idx_seq.nextval , 'aaaa4', '환불', '환불관련', sysdate);
+INSERT INTO IDEV.QUESTION
+(QUESTION_IDX, ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_DATE)
+VALUES(question_idx_seq.nextval , 'aaaa4', '예매 취소', '취소', sysdate);
+INSERT INTO IDEV.QUESTION
+(QUESTION_IDX, ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_DATE)
+VALUES(question_idx_seq.nextval , 'aaaa4', '환불', '환불관련', sysdate);
+
+
+--답변
+
+INSERT INTO IDEV.ANSWER
+(ANSWER_IDX, QUESTION_IDX, ANSWER_CONTENT)
+VALUES(answer_idx_seq.nextval, 1, '답변완료');
+INSERT INTO IDEV.ANSWER
+(ANSWER_IDX, QUESTION_IDX, ANSWER_CONTENT)
+VALUES(answer_idx_seq.nextval, 2, '답변완료');
+INSERT INTO IDEV.ANSWER
+(ANSWER_IDX, QUESTION_IDX, ANSWER_CONTENT)
+VALUES(answer_idx_seq.nextval, 1, '답변완료2');
